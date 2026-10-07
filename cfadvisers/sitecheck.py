@@ -98,7 +98,7 @@ def analyse(base: str, html: str) -> dict:
         if not contact and (CONTACT.search(text) or CONTACT.search(path)):
             contact = url.split("#")[0]
     emails += EMAIL.findall(html)
-    emails = [e.lower() for e in dict.fromkeys(emails) if not SKIP_EMAIL.search(e)]
+    emails = [e.lower() for e in dict.fromkeys(emails) if EMAIL.fullmatch(e) and not SKIP_EMAIL.search(e)]
     own = [e for e in emails if root_domain(e.split("@")[1]) == root_domain(host)]
     best = next((e for e in own if PREFERRED_EMAIL.match(e)), own[0] if own else None)
     return {"team_url": team, "contact_url": contact, "emails": own[:10], "best_email": best,
