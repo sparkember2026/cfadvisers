@@ -105,3 +105,8 @@ def test_merge_applies_site_check_fills(tmp_path):
     r = store.read_jsonl(tmp_path / "advisers.jsonl")[0]
     assert r["contact_email"] == "deals@x.co.uk"          # research wins over the site check
     assert r["contact_phone"] == "0113 000 0000" and r["team_url"] == "https://x.co.uk/team"
+
+
+def test_clean_dedupes_sources_ignoring_trailing_slash():
+    r = model.clean({"name": "X", "website": "x.com", "sources": ["https://x.com/", "https://x.com", " https://x.com/a "]})
+    assert r["sources"] == ["https://x.com/", "https://x.com/a"]

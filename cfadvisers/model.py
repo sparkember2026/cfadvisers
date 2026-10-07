@@ -138,6 +138,14 @@ def clean(rec: dict) -> dict:
             sectors.append(m)
     r["sectors"] = sectors
     r["regions_covered"] = [x for x in dict.fromkeys(r["regions_covered"]) if x in REGIONS]
+    seen = set()
+    sources = []
+    for s in r["sources"]:
+        key = s.strip().rstrip("/").lower()
+        if s.strip() and key not in seen:
+            seen.add(key)
+            sources.append(s.strip())
+    r["sources"] = sources
     r["services"] = [x for x in dict.fromkeys(r["services"]) if x in SERVICES]
     r["offices"] = list(dict.fromkeys(o.strip() for o in r["offices"] if o and o.strip()))
     for k in ("cf_professionals", "deal_ebitda_min_m", "deal_ebitda_max_m", "deal_ev_min_m", "deal_ev_max_m"):
