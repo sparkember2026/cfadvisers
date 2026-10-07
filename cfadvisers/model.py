@@ -89,12 +89,18 @@ def slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
 
+_PATH_NOISE = {"uk", "gb", "en", "en-gb", "en-uk", "home", "index", "default", "www"}
+
+
 def make_id(rec: dict) -> str:
     d = domain_of(rec.get("website"))
-    path = urlparse(rec["website"] if "://" in (rec.get("website") or "") else "https://" + (rec.get("website") or "")).path
-    # several firms share a domain (e.g. a network's member pages): keep the path to tell them apart
-    base = d + (path.rstrip("/") if path not in ("", "/") else "")
-    return slug(base) or slug(rec.get("name", ""))
+    w = rec.get("website") or ""
+    path = urlparse(w if "://" in w else "https://" + w).path
+    # several firms share a domain (e.g. a network's member pages): keep the meaningful part of the path
+    # to tell them apart, without locale / index noise ("/uk/en/home.html" -> "")
+    segs = [re.sub(r"\.s?html?$", "", x) for x in path.lower().split("/")]
+    segs = [x for x in segs if x and x not in _PATH_NOISE]
+    return slug(" ".join([d] + segs)) or slug(rec.get("name", ""))
 
 
 def _num(v):
