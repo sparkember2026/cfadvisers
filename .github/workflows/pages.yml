@@ -1,0 +1,27 @@
+name: site
+# Rebuilds the static web app from data/advisers.jsonl on every push to the working branch and publishes it to the
+# gh-pages branch. To serve it: repo Settings -> Pages -> Source "Deploy from a branch" -> gh-pages, / (root).
+# Then it is live at https://sparkember2026.github.io/cfadvisers/ (public, like the repo).
+on:
+  push:
+    branches: [claude/eager-newton-30tnay, main]
+    paths: [data/advisers.jsonl, data/companies_house/resolved.jsonl, cfadvisers/**, .github/workflows/pages.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: { group: site, cancel-in-progress: true }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: pip install -r requirements.txt
+      - run: python -m cfadvisers build-static --out site
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true
