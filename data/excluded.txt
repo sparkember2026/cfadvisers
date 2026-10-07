@@ -1,2 +1,6 @@
 # ids (see the `id` field) that must never be in the list, one per line, with a reason:
 # example-co-uk  # closed in 2025
+moore-co-uk  # Moore South merged into Moore Kingston Smith (April 2026)
+capitalise-com  # SME funding platform, not an adviser
+rangewell-com  # SME funding platform, not an adviser
+swoopfunding-com  # SME funding platform, not an adviser
