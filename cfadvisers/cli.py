@@ -79,7 +79,7 @@ def cmd_validate(a):
 
 def cmd_known(a):
     lines = [f"{r['name']} | {r['website']} | {r['firm_type']} | {r.get('hq') or ''}"
-             for r in read_jsonl(Path(a.data) / "advisers.jsonl")]
+             for r in map(model.clean, read_jsonl(Path(a.data) / "advisers.jsonl"))]
     excluded = store.read_excluded(Path(a.data) / "excluded.txt")
     lines += [f"(excluded) {x}" for x in sorted(excluded)]
     text = "\n".join(lines) + "\n"
