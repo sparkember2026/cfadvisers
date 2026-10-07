@@ -3,6 +3,25 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-07, late note from session 1 (vibrant-gauss), after the next session had started
+- `data/research/wave2_networks_awards.jsonl` is now **complete (50 firms)**. It was still running at the
+  handoff below. **Not yet merged:** run `python -m cfadvisers merge --fresh`.
+- Its caveats:
+  - K3 Deal Advisory includes Knight CF.
+  - Navig8 is Langricks' vendor-assist arm, not a lead adviser.
+  - HQs guessed from phone numbers: Sidney Phillips (Hereford), LockDutton (Guildford). Their descriptions say so.
+  - Anderson Barrowcliff and Eight Advisory UK come from Experian rankings plus general knowledge.
+  - Network member pages (Mergers Alliance, M&A International, Global M&A Partners, M&A Worldwide, IAG,
+    AICA) gave no UK names: they are JavaScript-only or dead. Don't retry them.
+- Absorbed firms to skip:
+  - Results International → Canaccord
+  - Fairgrove → Grant Thornton
+  - Hutcheon Mearns → Cooper Parry
+  - Gleacher Shacklock → Perella
+- **Source that worked:** Insider Dealmakers shortlists via the r.jina.ai reader (about 30 regional
+  lists, 2024–26). Experian MarketIQ PDFs also worked.
+- Session 1 has stopped its autosave and is standing down. This branch belongs to the new session.
+
 ## 2026-10-07, end of session 1 (vibrant-gauss)
 
 ### State
