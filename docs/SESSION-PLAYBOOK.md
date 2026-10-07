@@ -15,6 +15,8 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
 | **Agents write only locally** | Background research agents append to `data/research/*.jsonl` but don't touch git (by design: parallel agents doing git would collide). Their work exists only in the container until the main session commits it. | `tools/autosave.sh` commits and pushes `data/research/` every 5 min. |
 | **Stop hook on dirty tree** | The harness's "uncommitted changes" stop hook fires at the end of every turn while agents are writing. Each one costs a turn. | Same autosave. It also keeps the tree clean between turns. |
 
+| **Two sessions on one branch** | Seen 10-07: the owner opened the next session while this one's autosave was still running. Pushes were then rejected (non-fast-forward). | `tools/autosave.sh` now runs `pull --rebase --autostash` before each push. The old session should stop its autosave and stand down once the new one has started. |
+
 ## 2. Web search budget: the real constraint on research (observed here, 10-07)
 - **WebSearch is capped at about 200 calls per turn, shared by every agent running in that turn.** That's
   per turn, not per agent and not per session. Round 1 launched 8 agents at once: the budget ran out

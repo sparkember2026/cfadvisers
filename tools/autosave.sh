@@ -15,7 +15,8 @@ while [ "$(date +%s)" -lt "$end" ]; do
   if ! git diff --cached --quiet; then
     n=$(cat data/research/*.jsonl 2>/dev/null | wc -l)
     git commit -qm "autosave: research batches ($n lines)" >/dev/null 2>&1
-    for t in 1 2 3 4; do git push -q origin "HEAD:$BRANCH" >/dev/null 2>&1 && break; sleep $((t*2)); done
+    # another session may push to the same branch: rebase onto it first (autostash keeps unsaved agent writes)
+    for t in 1 2 3 4; do git pull -q --rebase --autostash origin "$BRANCH" >/dev/null 2>&1 && git push -q origin "HEAD:$BRANCH" >/dev/null 2>&1 && break; sleep $((t*2)); done
     echo "$(date -u +%H:%M) saved, $n research lines"
   else
     echo "$(date -u +%H:%M) no change"
