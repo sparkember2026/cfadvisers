@@ -10,3 +10,4 @@ lexingtoncf-co-uk  # acquired by FRP (July 2024); FRP is in the list
 kjg-co-uk  # Kay Johnson Gee renamed Xeinadin North West Ltd (Companies House 11415125, June 2024); kjg.co.uk is for sale. Xeinadin is the record.
 navig8advisory-com  # Navig8 is Langricks' transaction-support arm; the record is langricks-com
 mooresouth-co-uk  # Moore South has joined Moore Kingston Smith (its own site, checked 2026-10-07); the record is mooreks-co-uk
+sw-co-uk  # wrong domain: sw.co.uk is Sanderson Weatherall; S&W re-added as swgroup-com via overrides (2026-10-07)

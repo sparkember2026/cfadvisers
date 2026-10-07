@@ -74,3 +74,19 @@ def test_build_static_embed(tmp_path):
     assert "window.CFA_EMBED = true" in html and 'id="copyCsv"' in html and "--bg:" in html
     assert not (out / "app.js").exists() and not (out / "sw.js").exists()
     assert json.loads((out / "data" / "advisers.json").read_text())["items"]
+
+
+def test_companies_house_attached(tmp_path):
+    import shutil
+    d = tmp_path / "data"
+    shutil.copytree(FIX, d)
+    rid = "alphacf-co-uk"
+    (d / "companies_house").mkdir(exist_ok=True)
+    (d / "companies_house" / "resolved.jsonl").write_text(json.dumps(
+        {"id": rid, "company_number": "08123456", "company_name": "X LTD", "status": "Liquidation", "match": "website",
+         "source": "Companies House bulk company data 2026-10-01"}) + "\n")
+    c = TestClient(create_app(d))
+    r = c.get(f"/v1/advisers/{rid}").json()
+    assert r["companies_house"]["company_number"] == "08123456" and r["company_status"] == "Liquidation"
+    assert "08123456" in c.get("/v1/export.csv").text
+    assert c.get("/v1/stats").json()["with_companies_house"] == 1

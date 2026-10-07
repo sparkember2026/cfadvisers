@@ -150,7 +150,7 @@
       (r.sectors.length > 3 ? `<span class="chip more">+${r.sectors.length - 3}</span>` : "");
     const cf = r.cf_professionals == null ? "" : r.cf_professionals + (r.cf_professionals_basis === "estimate" ? ' <span class="est">est.</span>' : "");
     return `<tr tabindex="0" data-id="${esc(r.id)}">
-      <td><div class="nm">${esc(r.name)}${r.covers_sme ? '<span class="sme" title="Core deal size overlaps £0.5–2m EBITDA">SME</span>' : ""}</div>
+      <td><div class="nm">${esc(r.name)}${r.covers_sme ? '<span class="sme" title="Core deal size overlaps £0.5–2m EBITDA">SME</span>' : ""}${chFlag(r)}</div>
         <div class="dom">${esc(r.domain)}</div></td>
       <td class="type hide-s">${esc(r.firm_type_label)}</td>
       <td class="hide-s">${esc(r.hq || "")}<div class="dom">${r.offices.length > 1 ? r.offices.length + " offices" : ""}</div></td>
@@ -168,8 +168,27 @@
   function apply() { view = sortRows(filter()); shown = PAGE; render(); }
   function changed() { syncInputs(); writeHash(); apply(); }
 
+  // a firm whose Companies House entity is not plain "Active" (liquidation, strike-off proposed, dissolved)
+  const chFlag = (r) => r.companies_house && r.companies_house.status !== "Active"
+    ? `<span class="flag" title="Companies House: ${esc(r.companies_house.status)}">${esc(r.companies_house.status.replace(/^Active - /, ""))}</span>` : "";
+
   /* ---------- detail drawer ---------- */
   const link = (u, t) => u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t || u.replace(/^https?:\/\/(www\.)?/, ""))}</a>` : "";
+  function chSection(r) {
+    const c = r.companies_house; if (!c) return "";
+    const how = c.match === "website" ? "number stated on the firm's website" : "only active company with this name, registered in its HQ town";
+    const url = "https://find-and-update.company-information.service.gov.uk/company/" + encodeURIComponent(c.company_number);
+    return `<h3>Companies House</h3><dl>
+      <dt>Company</dt><dd>${link(url, c.company_name + " (" + c.company_number + ")")}</dd>
+      <dt>Status</dt><dd>${esc(c.status)}${chFlag(r)}</dd>
+      ${dd("Incorporated", esc(c.incorporated || ""))}
+      ${dd("Last accounts", esc([c.accounts_category && c.accounts_category.toLowerCase(), c.accounts_made_up_to && "to " + c.accounts_made_up_to].filter(Boolean).join(", ")))}
+      ${dd("Registered office", esc([c.post_town, c.postcode].filter(Boolean).join(" ")))}
+      ${dd("Previous names", esc((c.previous_names || []).map((p) => p.name + (p.until ? " (to " + p.until + ")" : "")).join("; ")))}
+      ${dd("SIC", esc((c.sic_codes || []).join("; ")))}
+      <dt>Matched by</dt><dd><span class="est">${how}; ${esc(c.source)}</span></dd></dl>`;
+  }
+  const dd = (label, v) => v ? `<dt>${label}</dt><dd>${v}</dd>` : "";
   function open(id) {
     const r = DATA.find((x) => x.id === id); if (!r) return;
     const basis = (b) => b ? ` <span class="est">(${b === "team_page" ? "counted on team page" : b === "deals" ? "from its deals" : b})</span>` : "";
@@ -181,7 +200,6 @@
       <dt>Median deal size</dt><dd>${r.pitchbook.median_deal_size_m != null ? "£" + r.pitchbook.median_deal_size_m + "m" : "–"}</dd>
       <dt>Last deal</dt><dd>${esc(r.pitchbook.last_deal || "–")}</dd>
       <dt>Recent</dt><dd>${(r.pitchbook.recent || []).map((d) => esc(`${d.company || "?"} (${d.date || ""})`)).join("<br>")}</dd></dl>` : "";
-    const dd = (label, v) => v ? `<dt>${label}</dt><dd>${v}</dd>` : "";
     $("dBody").innerHTML = `
       <h2 id="dName">${esc(r.name)}</h2>
       <div class="dom">${esc(r.firm_type_label)}${r.parent ? " · " + esc(r.parent) : ""}${r.covers_sme ? '<span class="sme">SME</span>' : ""}</div>
@@ -213,6 +231,7 @@
         ${dd("Contact page", link(r.contact_url))}
         ${dd("Website", link(r.website))}
       </dl>
+      ${chSection(r)}
       ${pb}
       <h3>Sources</h3><ul>${(r.sources || []).map((s) => `<li>${link(s)}</li>`).join("")}</ul>
       ${r.notes ? `<h3>Notes</h3><p>${esc(r.notes)}</p>` : ""}

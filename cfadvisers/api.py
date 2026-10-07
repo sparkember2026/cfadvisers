@@ -30,7 +30,8 @@ CSV_FIELDS = [
     "name", "website", "firm_type_label", "parent", "hq", "hq_region", "offices", "coverage", "regions_covered",
     "cf_professionals", "cf_professionals_basis", "ebitda_min_m", "ebitda_max_m", "deal_ev_min_m", "deal_ev_max_m",
     "deal_size_basis", "deal_size_note", "covers_sme", "services", "sectors", "sector_note", "contact_email",
-    "contact_phone", "team_url", "contact_url", "linkedin_url", "description", "pitchbook_deals", "sources",
+    "contact_phone", "team_url", "contact_url", "linkedin_url", "description", "pitchbook_deals", "company_number",
+    "company_status", "sources",
     "completeness", "id",
 ]
 

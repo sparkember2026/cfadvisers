@@ -145,6 +145,12 @@ class Store:
             if r["id"] in pb.get("advisers", {}):
                 r["pitchbook"] = pb["advisers"][r["id"]]
         self.pitchbook_meta = {k: v for k, v in pb.items() if k != "advisers"}
+        # Companies House entity per firm, from tools/ch_bulk.py (only firm matches: own-site number or name+town)
+        ch = {c["id"]: c for c in read_jsonl(self.data_dir / "companies_house" / "resolved.jsonl")}
+        for r in self.rows:
+            if r["id"] in ch:
+                r["companies_house"] = {k: v for k, v in ch[r["id"]].items() if k != "id"}
+                r["company_number"], r["company_status"] = ch[r["id"]]["company_number"], ch[r["id"]]["status"]
         self.by_id = {r["id"]: r for r in self.rows}
 
     def get(self, adviser_id: str) -> dict | None:
@@ -220,6 +226,7 @@ class Store:
             "cf_professionals_median": statistics.median(cf) if cf else None,
             "mean_completeness": round(statistics.mean(r["completeness"] for r in rows)) if rows else None,
             "with_pitchbook": sum(1 for r in rows if r.get("pitchbook")),
+            "with_companies_house": sum(1 for r in rows if r.get("companies_house")),
             "ev_to_ebitda_multiple": self.multiple or model.ev_multiple(),
             "sme_band_ebitda_m": list(model.SME_BAND),
             "pitchbook": self.pitchbook_meta or None,
