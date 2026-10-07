@@ -3,6 +3,36 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-07, session 2, round 4 done (609 firms)
+- **609 firms** (539 after round 3). Round 4, `data/research/wave4_*.jsonl`, about 70 net new:
+  Companies House pass 2: 32; sector brokers: 18; regional deals: 14; London/SE: 8.
+- **The Companies House method is the only source still producing.** It found 32 firms using 3 searches:
+  advanced search for active companies by name term and SIC, about 25 domain guesses per company, fetch
+  the live sites, score them for M&A wording, then check by hand.
+  - Its working files are in the session scratchpad `w4_ch2/`: `fetched*.tsv` scores for ~50k domains,
+    `reviewed.txt`. They die with the container.
+  - Known gap: the round 3 scraper's row regex skipped companies listed with no SIC code.
+- **Everything else is saturated:** press deal articles (~3,000 read; about one new adviser per 100-200),
+  the Insider CF directory (~700 entries), PE portfolio press releases, the South East and Thames Valley
+  shortlists, and the sector broker directories.
+- **Quality, done:**
+  - Six deal sizes upgraded to `stated` from the firms' own wording (Capital & Trust, Debrett's,
+    Highstead, Leith, Transcend, Scottish Business Centre).
+  - Moore South excluded again: it has joined Moore Kingston Smith, and its offices were added to the
+    MKS record.
+  - Still blocked even in headless Chromium (Cloudflare): GMcG, Hart Shaw, Anderson Barrowcliff,
+    Nicklin. They stay "unverified".
+- **Weak-evidence records added in round 4** (new firms whose track record is the founders' earlier work):
+  Sunset Capital, Stoneward, LuxCap, Cogito, Pinpoint, Onward, Eleven Advisory; also Sterling CF,
+  Avero and Barrons from round 3. Review them if a stricter list is wanted.
+- **More absorbed firms:** Green Square → HaysMac; Quayle Munro and McQueen → Houlihan Lokey;
+  ACXIT → Stifel; Wilkins Kennedy → Azets; Martin Aitken → Armstrong Watson; Meston Reid → MHA;
+  Springboard CF → BTG.
+- **Dead leads:** Odyssey CF (dissolved 2015), MP CF (incorporated Sept 2026), Ridgstone (shell),
+  Pacem (tax firm), BGT Advisory (spam domain), Dougold (empty site).
+  Vertex Corporate LLP is real, but no website has been found.
+- The playbook threshold (switch to quality below ~25 new firms a round) has not been reached yet.
+
 ## 2026-10-07, session 2 (stoic-edison, working on branch vibrant-gauss), round 3 done
 
 ### State
