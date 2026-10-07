@@ -1,0 +1,277 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "UK CF adviser record",
+ "description": "Stored form of one line of data/advisers.jsonl. See docs/RECORD-FORMAT.md.",
+ "type": "object",
+ "required": [
+  "id",
+  "name",
+  "website",
+  "firm_type",
+  "sources"
+ ],
+ "properties": {
+  "id": {
+   "type": "string"
+  },
+  "name": {
+   "type": "string"
+  },
+  "aliases": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "website": {
+   "type": "string",
+   "format": "uri"
+  },
+  "firm_type": {
+   "enum": [
+    "independent_boutique",
+    "sector_specialist",
+    "accountancy_cf",
+    "big4",
+    "investment_bank",
+    "business_broker",
+    "debt_advisory",
+    "law_firm"
+   ]
+  },
+  "parent": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "hq": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "hq_region": {
+   "enum": [
+    "London",
+    "South East",
+    "South West",
+    "East of England",
+    "East Midlands",
+    "West Midlands",
+    "Yorkshire and the Humber",
+    "North West",
+    "North East",
+    "Scotland",
+    "Wales",
+    "Northern Ireland",
+    "International",
+    null
+   ]
+  },
+  "offices": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "coverage": {
+   "enum": [
+    "national",
+    "regional",
+    "local",
+    "international",
+    null
+   ]
+  },
+  "regions_covered": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "London",
+     "South East",
+     "South West",
+     "East of England",
+     "East Midlands",
+     "West Midlands",
+     "Yorkshire and the Humber",
+     "North West",
+     "North East",
+     "Scotland",
+     "Wales",
+     "Northern Ireland"
+    ]
+   }
+  },
+  "cf_professionals": {
+   "type": [
+    "integer",
+    "null"
+   ],
+   "minimum": 0
+  },
+  "cf_professionals_basis": {
+   "enum": [
+    "stated",
+    "team_page",
+    "deals",
+    "estimate",
+    null
+   ]
+  },
+  "deal_ebitda_min_m": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "minimum": 0
+  },
+  "deal_ebitda_max_m": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "minimum": 0
+  },
+  "deal_ev_min_m": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "minimum": 0
+  },
+  "deal_ev_max_m": {
+   "type": [
+    "number",
+    "null"
+   ],
+   "minimum": 0
+  },
+  "deal_size_basis": {
+   "enum": [
+    "stated",
+    "team_page",
+    "deals",
+    "estimate",
+    null
+   ]
+  },
+  "deal_size_note": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "services": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "sell_side",
+     "buy_side",
+     "mbo",
+     "fundraising",
+     "debt_advisory",
+     "due_diligence",
+     "valuations",
+     "ecm",
+     "restructuring"
+    ]
+   }
+  },
+  "sectors": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "Business Services",
+     "Technology & Software",
+     "Healthcare",
+     "Life Sciences",
+     "Consumer & Retail",
+     "Food & Beverage",
+     "Leisure & Hospitality",
+     "Industrials & Manufacturing",
+     "Engineering",
+     "Construction & Property",
+     "Financial Services",
+     "Professional Services",
+     "Media & Marketing",
+     "Education",
+     "Energy & Renewables",
+     "Transport & Logistics",
+     "Automotive",
+     "Agriculture",
+     "Recruitment & Staffing",
+     "Care",
+     "Dental & Veterinary",
+     "Pharmacy",
+     "Telecoms",
+     "Facilities Management",
+     "Environmental Services",
+     "Distribution & Wholesale",
+     "Charity & Public Sector",
+     "Generalist"
+    ]
+   }
+  },
+  "sector_note": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "contact_email": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "contact_phone": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "team_url": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "contact_url": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "linkedin_url": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "description": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "notes": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "sources": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "updated": {
+   "type": [
+    "string",
+    "null"
+   ]
+  }
+ }
+}

@@ -1,0 +1,2 @@
+# ids (see the `id` field) that must never be in the list, one per line, with a reason:
+# example-co-uk  # closed in 2025

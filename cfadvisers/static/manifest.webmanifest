@@ -1,0 +1,11 @@
+{
+  "name": "UK Corporate Finance Advisers",
+  "short_name": "CF Advisers",
+  "description": "Directory of UK corporate finance and M&A advisers, filterable by deal size, firm type, region and sector.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#1f3a5f",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]
+}
