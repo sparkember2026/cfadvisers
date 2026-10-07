@@ -113,3 +113,15 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
     don't put guesses in briefs. Seen 10-07: Clearwater's "Birmingham" HQ came from my brief.
   - **office lists for national firms.**
 - About 85% of deal sizes are estimates. The best upgrade is PitchBook deal data, then the firm's own wording.
+
+## 7. Observations from session 2 (10-07)
+- Seen 10-07: the `pytest` on PATH is a different interpreter without fastapi. Use `python -m pytest -q`.
+- Seen 10-07: the previous session was still pushing to the same branch after the new one started. Pull with
+  `--rebase` before pushing (autosave now does this). When a script changes under a running bash loop
+  (autosave.sh), stop and restart it.
+- Seen 10-07: `check-sites --fill` used to be lost on the next `merge --fresh`. Now merge re-applies fills from
+  `data/site_checks.jsonl`. Run `check-sites` (no `--fill` needed), then merge.
+- Seen 10-07, round 3: the regional sources are exhausted. Four agents found about 55 new firms, 30 of them from
+  the Companies House advanced search (active companies, name terms, finance SIC codes) plus guessing
+  websites from names and fetching them with curl. That costs no search budget, so it scales.
+- Seen 10-07: r.jina.ai rate-limits per IP. Leave about 4-5 seconds between calls.

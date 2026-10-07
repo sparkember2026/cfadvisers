@@ -3,6 +3,57 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-07, session 2 (stoic-edison, working on branch vibrant-gauss), round 3 done
+
+### State
+- **539 firms** (was 480). Round 3: four agents, `data/research/wave3_*.jsonl`, about 55 net new firms:
+  Companies House 30, Experian/Insider 14, leads/sectors 9, networks 5.
+- **Hourly revive Routine: `trig_01BB4YX9pQ8CffPf3cL66tu2`** ("cfadvisers hourly revive"). Disable it when
+  the work is done (`update_trigger(enabled=false)`).
+- `check-sites` run: 451/485 sites up. The rest are 403/429 bot blocks or TLS/proxy quirks (chiene, dbnumis,
+  rubicon, eight-advisory); none was clearly dead. Results are in `data/site_checks.jsonl`.
+- **Code fix:** `merge` now fills empty contact fields from `data/site_checks.jsonl`, so `check-sites`
+  fills survive `merge --fresh` (before, `--fill` wrote into advisers.jsonl and the next fresh merge threw it
+  away). Also fixed a crash on empty `mailto:` links. Emails 273 -> 307+, team pages 250 -> 365+.
+- **Clean-up done:**
+  - K3: kept KBS, Knightsbridge, Knight CF, Quantuma and K3 Deal Advisory as separate records (each still
+    trades under its own brand and site), all with `parent: "K3 Advisory Group"`.
+  - Livingstone: has a London office (Fulham High Street); kept.
+  - Moore NI: site still "coming soon"; Moore (N.I.) LLP is active at Companies House; kept with a note.
+  - Kay Johnson Gee: excluded (now Xeinadin North West, domain for sale).
+  - Chiene + Tait: rebranded CT, website https://ct.me (override).
+  - Park Place CF (Leeds): deal size now from its deals (150+ deals, £7.8bn aggregate; mid-market MBOs).
+  - Navig8: excluded as a duplicate of Langricks.
+  - Hall Morrice: still independent with its own CF team (a rumoured DSW tie-up is not on its site).
+- **Absorbed firms reported by agents (none are in the list; don't add them):**
+  - Into AAB: Sagars, French Duncan, Hardie Caldwell, GS Verde, PKF-FPM.
+  - Into Dains: Consilium, William Duncan.
+  - Into Cooper Parry: Cavanagh Kelly, Fellwood, Hutcheon Mearns.
+  - Into Xeinadin: Hallidays, Bowker Orford, Gibson Booth, Clay Shaw Butler, Lewis Ballard, Kay Johnson Gee.
+  - Into Gravita: Critchleys, CBW.
+  - Into TC Group: Knill James, Bulley Davey, BSN.
+  - Into FRP: WilliamsAli, Spectrum CF, JDC CF, Lexington.
+  - Others: Ensors → Azets; Torr Waterfield → Duncan & Toplis; Beever & Struthers → Menzies;
+    Broomfield & Alexander and Geoghegans → MHA; Jacobs Allen → Scrutton Bland; Mitten Clarke, Ashgates and
+    McBrides → DJH; Harwood Hutton → S&W; Wilson Wright → BKL; Mitchells → SMH; Catalyst CF → Alantra;
+    Mooreland → Stifel; Oakley → Houlihan Lokey; Bryan Garnier → Stifel; Robey Warshaw → Evercore;
+    IMAS → MarshBerry; Fairgrove → Grant Thornton.
+- **Dead leads (no site, not UK, or not CF):** Coombes CF (Cork), Carbon (wealth), Atlas CF, Cactus,
+  Modiplus (parked domain), Ward Goodman and Bissell & Brown (no CF), Watts Gregory, Springfords,
+  Clement Keys, Harrison Priddey, Hindley Capital, Debere, Arden Partners (lapsed).
+- **Leads still open (no website found yet):** Vertex Corporate LLP (Manchester, £1-10m EV, OC430285),
+  Dougold Partners (Antrim), MP CF, BGT Advisory and Pacem Advisory (NI), Ridgstone Advisory (NE),
+  Odyssey CF (Birmingham).
+- **Findings:** regional league tables and Dealmakers shortlists are now nearly all known firms
+  (all 12 regions, 2024-26). The accountancy networks are exhausted too. The Companies House scrape
+  plus domain guessing was the best source of new SME boutiques.
+
+### Next steps
+- Round 4 (if it adds fewer than ~25 firms, switch to quality): Companies House second pass, open leads,
+  sector brokers, and London boutiques from deal announcements.
+- Quality: re-verify the "unverified" descriptions (GMcG, Hart Shaw, Nicklin, Anderson Barrowcliff behind bot
+  protection), upgrade estimated deal sizes from the firm's own wording.
+
 ## 2026-10-07, late note from session 1 (vibrant-gauss), after the next session had started
 - `data/research/wave2_networks_awards.jsonl` is now **complete (50 firms)**. It was still running at the
   handoff below. **Not yet merged:** run `python -m cfadvisers merge --fresh`.
