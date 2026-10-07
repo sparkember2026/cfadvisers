@@ -1,6 +1,6 @@
 # cfadvisers: notes for Claude sessions
 
-A directory of UK corporate finance advisers (web app + API + CLI). Read README.md, then docs/RECORD-FORMAT.md.
+A directory of UK corporate finance advisers (web app + API + CLI). Read README.md, docs/HANDOFF.md (where the last session stopped), then docs/RECORD-FORMAT.md.
 
 - The list is `data/advisers.jsonl`. Don't hand-edit it in bulk. Add research to `data/research/<batch>.jsonl`
   and run `python -m cfadvisers merge`. Records match on website domain, list fields are unioned, and
