@@ -7,7 +7,7 @@ Work on branch `claude/vibrant-gauss-w847ef`: fetch it and check it out. Commit 
 
 Read CLAUDE.md, README.md, docs/HANDOFF.md and docs/RECORD-FORMAT.md first. The app (API, web app, CLI,
 PitchBook importer, website checker) is built and tested. The job now is the DATA: `data/advisers.jsonl`
-has ~455 firms, and the goal is 600–900 UK CF advisers. The focus is firms doing £0.5–2m EBITDA (SME) deals.
+has ~470 firms, and the goal is 600–900 UK CF advisers. The focus is firms doing £0.5–2m EBITDA (SME) deals.
 
 1. Follow "How to continue" in docs/HANDOFF.md: regenerate `data/existing_firms.txt` from the merged list.
 2. Web search is limited to ~200 calls per turn, shared by all agents running in that turn. Run research

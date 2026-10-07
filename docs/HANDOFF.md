@@ -3,20 +3,20 @@
 ## State
 - **App is done and tested:** API, web app (installable PWA), CLI, PitchBook importer and website checker
   (README.md). `pytest -q` passes (18 tests); `python -m cfadvisers validate` passes.
-- **Data:** `data/advisers.jsonl` holds **455 firms** merged from 13 research batches in `data/research/`.
-  - 375 overlap the £0.5–2m EBITDA band; 10 have no known deal size.
-  - 259 have an email address; 241 have a team page.
+- **Data:** `data/advisers.jsonl` holds **469 firms** merged from 13 research batches in `data/research/`.
+  - 388 overlap the £0.5–2m EBITDA band; about 10 have no known deal size.
+  - 267 have an email address; 244 have a team page.
   - Most deal sizes (~85%) and many team sizes are marked `estimate`.
 - **Research stopped early:** web search was capped at 200 calls per turn, shared across all parallel
   agents, and it ran out in both rounds. So every region came in under target.
-- **Second round was partly unfinished.** These three agents were still running at handoff:
+- **Second round was partly unfinished.** `wave2_london_se_east` finished (32 firms). These two agents
+  were still running at handoff:
   - `wave2_networks_awards`
-  - `wave2_london_se_east`
   - `wave2_sw_wales_scot_ni` (may not exist yet)
 
   Their files hold whatever had been pushed by then. Treat those segments as **not finished**.
 - **Exclusions so far** (`data/excluded.txt`): Moore South (merged into Moore Kingston Smith), and the
-  funding platforms Rangewell, Swoop and Capitalise.
+  funding platforms Rangewell, Swoop and Capitalise; a duplicate Carlsquare record; Peterhouse Capital (absorbed into AlbR Capital).
 - **Overrides** (`data/overrides.jsonl`): a note that Clearwater's head office is unconfirmed.
 
 ## How to continue
@@ -53,6 +53,7 @@
     M&A International.
 - **No specialists found yet** for automotive, logistics, construction, engineering, facilities
   management, security, waste or telecoms.
+- **Overlap to resolve:** K3 Deal Advisory is the new combined M&A arm of KBS, Knight and Quantuma, which still have separate records. Decide whether to merge them.
 - **Possible conflict:** one agent says Livingstone has no UK office now, but it is in the list as an
   investment bank. Verify.
 - **Quality pass:** about 15 records rest on general knowledge because the firm's site blocked
