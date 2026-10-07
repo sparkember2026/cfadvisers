@@ -1,3 +1,4 @@
+import json
 import csv
 import io
 from pathlib import Path
@@ -62,3 +63,14 @@ def test_token(monkeypatch):
     assert c.get("/v1/advisers", headers={"Authorization": "Bearer s3cret"}).status_code == 200
     assert c.get("/data/advisers.json", params={"token": "s3cret"}).status_code == 200
     assert c.get("/").status_code == 200
+
+
+def test_build_static_embed(tmp_path):
+    from cfadvisers import cli
+    out = tmp_path / "demo"
+    cli.main(["build-static", "--out", str(out), "--embed"])
+    html = (out / "index.html").read_text(encoding="utf-8")
+    assert html.startswith("<title>") and "<html" not in html and "<body" not in html
+    assert "window.CFA_EMBED = true" in html and 'id="copyCsv"' in html and "--bg:" in html
+    assert not (out / "app.js").exists() and not (out / "sw.js").exists()
+    assert json.loads((out / "data" / "advisers.json").read_text())["items"]

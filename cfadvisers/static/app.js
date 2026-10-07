@@ -37,8 +37,8 @@
     $("multipleHint").textContent = "EV-only ranges converted at " + META.ev_to_ebitda_multiple + "× EBITDA.";
     $("subtitle").textContent = DATA.length + " firms · deal sizes, sectors, regions and contacts";
     // static builds have no API: point the API button at the README instead
-    fetch("v1/health").then((r) => { if (!r.ok) throw 0; }).catch(() => {
-      $("apiLink").href = "https://github.com/sparkember2026/cfadvisers#api"; });
+    const readme = () => { $("apiLink").href = "https://github.com/sparkember2026/cfadvisers#api"; };
+    if (window.CFA_EMBED) readme(); else fetch("v1/health").then((r) => { if (!r.ok) throw 0; }).catch(readme);
     readHash();
     buildFilters();
     renderKpis();
@@ -246,10 +246,23 @@
   }
 
   /* ---------- CSV of the current view ---------- */
-  function csv() {
+  function csvLines(sep) {
     const cols = META.csv_fields;
-    const cell = (v) => { if (v == null) return ""; const s = Array.isArray(v) ? v.join("; ") : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
-    const lines = [cols.join(",")].concat(view.map((r) => cols.map((c) => cell(c === "pitchbook_deals" ? (r.pitchbook || {}).deals : r[c])).join(",")));
+    const cell = (v) => { if (v == null) return ""; const s = Array.isArray(v) ? v.join("; ") : String(v); return /[",\n\t]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+    return [cols.join(sep)].concat(view.map((r) => cols.map((c) => cell(c === "pitchbook_deals" ? (r.pitchbook || {}).deals : r[c])).join(sep)));
+  }
+  // Tab-separated, so it pastes straight into Excel or Google Sheets as columns.
+  function copyCsv() {
+    const text = csvLines("\t").join("\n"), btn = $("copyCsv"), label = btn.textContent;
+    const done = (msg) => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 2000); };
+    navigator.clipboard.writeText(text).then(() => done("Copied " + view.length + " rows"), () => {
+      const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done("Copied " + view.length + " rows"); } catch (e) { done("Copy blocked"); }
+      ta.remove();
+    });
+  }
+  function csv() {
+    const lines = csvLines(",");
     const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = "uk-cf-advisers.csv"; a.click();
@@ -272,12 +285,15 @@
   $("dClose").onclick = close; $("scrim").onclick = close;
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   $("dlCsv").onclick = csv;
+  $("copyCsv").onclick = copyCsv;
+  // embedded builds (build-static --embed) run in frames that block downloads and service workers
+  if (window.CFA_EMBED) { $("dlCsv").hidden = true; $("copyCsv").classList.remove("ghost"); }
   $("toggleFilters").onclick = () => { const o = $("filters").classList.toggle("open"); $("toggleFilters").setAttribute("aria-expanded", o); };
 
   let deferred;
   window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferred = e; $("installBtn").hidden = false; });
   $("installBtn").onclick = async () => { if (!deferred) return; deferred.prompt(); await deferred.userChoice; deferred = null; $("installBtn").hidden = true; };
-  if ("serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  if (!window.CFA_EMBED && "serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("sw.js").catch(() => {});
 
   load().catch((e) => { $("subtitle").textContent = "Could not load the data: " + e; });
 })();

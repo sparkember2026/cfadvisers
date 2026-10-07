@@ -7,7 +7,7 @@
     python -m cfadvisers merge [data/research/*.jsonl]   fold research batches into data/advisers.jsonl
     python -m cfadvisers pitchbook deals.csv          import a PitchBook deal export (see cfadvisers/pitchbook.py)
     python -m cfadvisers check-sites [--fill]         check websites, fill empty contact fields
-    python -m cfadvisers build-static [--out site]    static copy of the web app (no server needed)
+    python -m cfadvisers build-static [--out site] [--embed]    static copy of the web app (no server needed)
 """
 from __future__ import annotations
 
@@ -151,7 +151,28 @@ def cmd_build_static(a):
     (out / "data" / "advisers.json").write_text(c.get("/data/advisers.json").text, encoding="utf-8")
     (out / "uk-cf-advisers.csv").write_text(c.get("/v1/export.csv").text, encoding="utf-8")
     (out / ".nojekyll").write_text("")
+    if a.embed:
+        _embed(out)
+        _p(f"embeddable page -> {out}/index.html + {out}/data/advisers.json (CSS and JS inlined; publish both)")
+        return
     _p(f"static site -> {out}/ (open index.html via any web server, e.g. python -m http.server -d {out})")
+
+
+def _embed(out: Path):
+    """Rewrite index.html as a page fragment with app.css/app.js inlined, for hosts that wrap pages in their own
+    document and block downloads and service workers (e.g. a claude.ai Artifact). Data stays in data/advisers.json."""
+    import re
+    html = (out / "index.html").read_text(encoding="utf-8")
+    title = re.search(r"<title>.*?</title>", html, re.S).group(0)
+    body = re.search(r"<body>(.*)</body>", html, re.S).group(1)
+    css = (out / "app.css").read_text(encoding="utf-8")
+    js = (out / "app.js").read_text(encoding="utf-8").replace("</script", "<\\/script")
+    body = re.sub(r'<script src="app.js"></script>', lambda m: f"<script>window.CFA_EMBED = true;\n{js}</script>", body)
+    if "CFA_EMBED" not in body:
+        raise SystemExit("index.html no longer loads app.js the expected way; update _embed()")
+    (out / "index.html").write_text(f"{title}\n<style>\n{css}</style>\n{body.strip()}\n", encoding="utf-8")
+    for f in ("app.css", "app.js", "sw.js", "manifest.webmanifest", "uk-cf-advisers.csv", ".nojekyll"):
+        (out / f).unlink(missing_ok=True)
 
 
 def main(argv=None) -> int:
@@ -209,6 +230,7 @@ def main(argv=None) -> int:
 
     p = sub.add_parser("build-static", help="static copy of the web app with the data baked in")
     p.add_argument("--out", default="site")
+    p.add_argument("--embed", action="store_true", help="one page with CSS/JS inlined, for hosts that wrap pages (claude.ai Artifacts)")
     p.set_defaults(fn=cmd_build_static)
 
     a = ap.parse_args(argv)
