@@ -5,7 +5,7 @@ Current numbers and the plan live in the top entry of docs/HANDOFF.md, not here,
 
 ```
 Continue the UK corporate finance advisers directory in this repo (sparkember2026/cfadvisers).
-Work on branch claude/vibrant-gauss-w847ef: fetch it, check it out, and commit + push to it often. No PR unless I ask.
+Work on the branch this session was given (the latest work is on claude/eager-newton-30tnay: merge or check it out first), and commit + push to it often. No PR unless I ask.
 
 START, in this order:
 1. Read CLAUDE.md, docs/SESSION-PLAYBOOK.md (how to run research here without losing work or running out of
@@ -13,7 +13,7 @@ START, in this order:
 2. pip install -r requirements.txt; pytest -q; python -m cfadvisers merge --fresh;
    python -m cfadvisers known --out data/existing_firms.txt
 
-THE JOB: the app is built. Grow and improve the DATA in data/advisers.jsonl (currently ~480 firms) towards
+THE JOB: the app is built. Grow and improve the DATA in data/advisers.jsonl (618 firms on 2026-10-07; see HANDOFF) towards
 600-900 UK corporate finance advisers, with the focus on firms doing £0.5-2m EBITDA (SME) deals, and make the
 records more accurate.
 
@@ -21,7 +21,7 @@ HOW (details in the playbook):
 - Research in ROUNDS. Each round:
   - start 3-4 background agents (never more: web search is ~200 calls per turn shared by all agents), each
     with an explicit cap of ~45 WebSearch calls, one segment from HANDOFF "Next steps", its own output file
-    data/research/wave3_<segment>.jsonl and its own scratch subdirectory;
+    data/research/wave<N>_<segment>.jsonl and its own scratch subdirectory;
   - each agent follows docs/research-briefs/common.md + round2.md;
   - in the same turn, start tools/autosave.sh 115 as a harness background task (run_in_background, timeout 7200000).
 - After each agent reports back:
@@ -32,6 +32,8 @@ HOW (details in the playbook):
   Then start the next round in a new turn, with known --out regenerated first.
 - If the work will run longer than ~2 hours, create the hourly revive Routine described in playbook section 4.
   Put its trigger id in HANDOFF, and disable it when done.
+- Code before agents: Companies House leads come from tools/ch_bulk.py (data/companies_house/bulk_candidates.jsonl);
+  find and score their websites with curl first, and give agents only the hits to check.
 - When the research rounds stop paying off (a round adds fewer than ~25 firms), switch to quality:
   - check-sites --fill;
   - the clean-up list in HANDOFF;
@@ -41,5 +43,7 @@ HOW (details in the playbook):
 RULES: never invent facts (unknown is null, estimates are marked "estimate", every record cites sources).
 Keep docs/HANDOFF.md current (a new top entry), and add new lessons to docs/SESSION-PLAYBOOK.md as dated
 observations. Before you stop, or when context runs long: update HANDOFF, push.
-Finally, check the web app with Playwright (Chromium at /opt/pw-browsers) and push.
+Finally, check the web app with Playwright (Chromium at /opt/pw-browsers), push, and republish the demo
+(python -m cfadvisers build-static --out <scratch>/demo --embed; Artifact publish to
+https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm with data/advisers.json and icon.svg as files).
 ```

@@ -139,3 +139,23 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
   the Companies House advanced search (active companies, name terms, finance SIC codes) plus guessing
   websites from names and fetching them with curl. That costs no search budget, so it scales.
 - Seen 10-07: r.jina.ai rate-limits per IP. Leave about 4-5 seconds between calls.
+
+## 8. Observations from session 3 (10-07, eager-newton)
+- Seen 10-07: **Companies House bulk data needs no API key, no Pixel and no web searches.** The monthly Basic
+  Company Data zip (471 MB) downloads from the cloud container in under a minute, and `tools/ch_bulk.py` scans all
+  5.5m companies in about 2 minutes. Prefer it to the public advanced search for anything list-shaped.
+- Seen 10-07: **the firm's own site is the best identity proof.** 236 of 618 sites print a company number
+  (homepage, contact or privacy page). Check it against the register *and* the name: some sites print a company
+  secretary's or sister firm's number, and a loose pattern catches GPhC/FCA/VAT numbers.
+- Seen 10-07: exact-name matches alone are not identity. "Qiao Ltd" (strike-off) is a namesake of our Qiao
+  Capital Advisors. Keep name-only matches as review leads; auto-resolve only with HQ town agreement.
+- Seen 10-07: the register catches research errors cheaply: S&W's record pointed at sw.co.uk, which is
+  Sanderson Weatherall.
+- Seen 10-07: the last autosave of a session can land after its HANDOFF entry. Start every session with
+  `merge --fresh` and a diff of ids against the committed list, and review what changed.
+- Seen 10-07: a **claude.ai Artifact** is the quickest shareable demo (`build-static --embed`): private until
+  shared, same URL on republish. It can't host the API, and blocks downloads and service workers.
+- Seen 10-07: this session ran with the weekly account limit already "rejected" (resets 12 Oct 18:00 UTC), on
+  extra-usage credit. A parallel session would spend the same credit. Open one only for search-bound work.
+- Seen in scrape (10-06): `claude -p` with Haiku to guess company domains cost ~$0.0005 a company but only 1 in
+  187 guesses on the real gap was provable. Code-only domain guessing plus a register or site check did better.

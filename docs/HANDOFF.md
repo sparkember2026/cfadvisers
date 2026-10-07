@@ -3,6 +3,56 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-07, session 3 (eager-newton, branch claude/eager-newton-30tnay): demo link + Companies House
+
+### State
+- **618 firms.** The last autosave of session 2 (after its HANDOFF note) held `wave5_ch_review` (9 firms) and
+  132 quality overrides (43 team counts from team pages, 66 LinkedIn URLs, 19 deal-size notes). Reviewed and merged.
+- **Live demo:** https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm (private until the owner shares it from its
+  Share menu). Built with `python -m cfadvisers build-static --out <dir> --embed`, published with `data/advisers.json`
+  and `icon.svg` as files. Republish from the same path to keep the URL.
+  - Artifact frames block downloads and service workers, so the embed build hides "Download CSV" and shows
+    "Copy CSV" (tab-separated, pastes into Excel/Sheets). The API button points at the README.
+  - The demo has no API. For an API, run `serve` somewhere (Dockerfile ready) or enable GitHub Pages for the
+    static copy (owner action; the repo is public).
+- **Companies House, done without Pixel:**
+  - The free monthly bulk register downloads from the container
+    (`https://download.companieshouse.gov.uk/BasicCompanyDataAsOneFile-2026-10-01.zip`, 471 MB; keep it in the
+    scratchpad, not git). The live CH API needs a key (401 without one).
+  - `check-sites` now reads company numbers from the homepage, contact or privacy/terms page: 236 of 618 sites.
+  - `tools/ch_bulk.py <zip>` (2 min, no model calls) writes `data/companies_house/`:
+    - `resolved.jsonl`: **352 firms** with one firm entity (212 by own-site number with a name check, 140 as the
+      only active same-name company registered in the HQ town). The Store attaches it as `companies_house`;
+      the app shows it; the CSV has `company_number`, `company_status`.
+    - `bulk_matches.jsonl`: every exact-name, previous-name and website match (535 firms), for review.
+    - `bulk_candidates.jsonl`: **2,588 active, non-dormant companies with CF/M&A words in the name** that match no
+      firm. Leads for website discovery (most will be shells, one-person consultancies or non-UK-facing).
+- **Fixed:** S&W pointed at sw.co.uk, which is Sanderson Weatherall (property). Now `swgroup-com` via overrides;
+  `sw-co-uk` excluded. Found by the company-number check.
+- **Web app:** leopard icon (owner's request); a name search now says how many firms the filters hide, with
+  "Search all firms" (before, searching a non-SME firm showed "No advisers match").
+- No Routines exist (session 2's revive trigger is gone). No web searches used this session.
+
+### Review list from the register (name matches only: check before excluding)
+- In liquidation: Livingstone Partners Limited; Sovereign Business Transfer Limited.
+- Proposal to strike off: CorpFin Limited, IBA Corporate Limited, VEXUS Ltd, Kroll Ltd (probably a namesake shell,
+  not Kroll), Qiao Ltd (namesake: our record cites Qiao Capital Advisors Ltd, 13448601).
+- Old names of active companies: Mitchell Charlesworth, Translink CF UK, Trillium CF (now Trillium Partners Ltd),
+  Westcotts (now Advanta Wealth (South West) Holdings).
+- 83 firms have no exact-name or website match at all (trading names differ): candidates for Pixel or for
+  reading the number off their sites by hand.
+
+### Next steps
+1. **Leads from `bulk_candidates.jsonl`** (code first, then agents): guess domains from names, fetch with curl,
+   score for M&A wording (the session 2 method), and send only the hits to 2-3 agents for checking. Uses no web
+   searches. Filter first: SIC 70229/64999/66190/69201/82990, accounts not dormant, incorporated before 2025.
+2. Work through the review list above.
+3. Pixel (see `docs/FOR-PIXEL.md` section 6): officers/LLP members per resolved company (team size check, named
+   dealmakers), PSC/parent (absorbed firms), and the websites ukacq holds for the candidates.
+4. Accounts data for size: CH accounts bulk (iXBRL, free) gives employees and sometimes turnover for small
+   companies; join on `company_number`.
+5. UX: collect feedback from the demo users (Tom, Joel) before building more.
+
 ## 2026-10-07, session 2, round 4 done (609 firms)
 - **609 firms** (539 after round 3). Round 4, `data/research/wave4_*.jsonl`, about 70 net new:
   Companies House pass 2: 32; sector brokers: 18; regional deals: 14; London/SE: 8.

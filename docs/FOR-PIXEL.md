@@ -104,3 +104,28 @@ Regenerate `request.csv`:
 ```
 python3 -c "import json,csv;w=csv.writer(open('data/companies_house/request.csv','w',newline=''));w.writerow(['id','name','aliases','website','firm_type','parent','hq','hq_region']);[w.writerow([r['id'],r['name'],'; '.join(r.get('aliases') or []),r['website'],r['firm_type'],r.get('parent') or '',r.get('hq') or '',r.get('hq_region') or '']) for r in map(json.loads,open('data/advisers.jsonl'))]"
 ```
+
+## 6. Update, 2026-10-07 (session 3): what we now have, and the narrower ask
+We matched the list ourselves from the free Companies House bulk register (`tools/ch_bulk.py`, Basic Company
+Data 2026-10-01) plus the company numbers the firms print on their own sites. So items 1, 2 (status and previous
+names), 4 and most of 5 in section 2 are covered:
+- `data/companies_house/resolved.jsonl`: 352 firms with a firm company number (212 from the firm's own site,
+  140 as the only active same-name company in the HQ town);
+- `data/companies_house/bulk_candidates.jsonl`: 2,588 active CF-named companies not in the list.
+
+**What the bulk file lacks, and we'd like from ukacq,** for the company numbers in
+`data/companies_house/pixel_request.csv` (`list` = `advisers` or `candidates`):
+1. **Officers and LLP members, current and resigned, with appointment dates** (`employee_data.company_officer`).
+   Uses: a check on our team-size counts, named dealmakers per firm, and spotting teams that moved firm.
+2. **PSC, especially corporate PSCs** (`employee_data.psc_raw`), to find firms now owned by groups
+   (FRP, Xeinadin, AAB, K3, etc.).
+3. **Any website or domain ukacq holds** for these companies (`company_url_candidate` / `company_web_profile`, if
+   those are what we think). For the 2,588 candidates this is the biggest saving: finding the website is our
+   bottleneck.
+4. Anything on **accounts** (employees, turnover) if you hold it; otherwise we'll use the CH accounts bulk data.
+
+**Format:** the same extract you made for sparkember2026/scrape (`inputs/ch_extract/<list>/`:
+`companies.jsonl.gz`, `officers.jsonl.gz`, `psc.jsonl.gz`, `manifest.json`), into
+`data/companies_house/ukacq/` in this repo, or as a file Adam can pass on. Websites as an extra
+`websites.jsonl.gz` (`company_number`, `url`, `source`, `seen`). We keep the rules agreed in scrape: exact
+company numbers only, no fuzzy name matching, and we won't republish facts that only restate the extract.
