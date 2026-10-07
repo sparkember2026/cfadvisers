@@ -141,3 +141,5 @@ tbody tr:last-child td { border-bottom: 0; }
   .layout { display: block; padding: 0; }
   .tablewrap { border: 0; }
 }
+.hidden-hint { text-align: center; color: var(--muted); padding: 14px; }
+.hidden-hint .btn { margin-left: 8px; }

@@ -160,10 +160,20 @@
   }
   function render() {
     $("count").textContent = `${view.length} of ${DATA.length} advisers`;
-    $("rows").innerHTML = view.slice(0, shown).map(row).join("") ||
-      `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:30px">No advisers match these filters.</td></tr>`;
+    // a name search that the size/type filters hide (e.g. a firm outside the SME band) should still be findable
+    const hidden = state.q ? searchOnly().length - view.length : 0;
+    const hint = hidden > 0 ? `<tr><td colspan="6" class="hidden-hint">${hidden} more ${hidden === 1 ? "firm matches" : "firms match"}
+      “${esc(state.q)}” outside these filters. <button class="btn ghost" id="searchAll">Search all firms</button></td></tr>` : "";
+    $("rows").innerHTML = (view.slice(0, shown).map(row).join("") ||
+      `<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:30px">No advisers match these filters.</td></tr>`) + hint;
+    if ($("searchAll")) $("searchAll").onclick = () => { const q = state.q; $("reset").click(); state.q = q; $("q").value = q; state.emin = state.emax = null; changed(); };
     $("more").innerHTML = view.length > shown ? `<button class="btn ghost" id="moreBtn">Show ${Math.min(PAGE, view.length - shown)} more</button>` : "";
     if ($("moreBtn")) $("moreBtn").onclick = () => { shown += PAGE; render(); };
+  }
+  function searchOnly() {
+    const saved = { ...state };
+    Object.assign(state, { emin: null, emax: null, unknown: true, ft: [], region: [], hq: [], sector: [], service: [], cfmin: null, cfmax: null, contact: false, email: false });
+    try { return filter(); } finally { Object.assign(state, saved); }
   }
   function apply() { view = sortRows(filter()); shown = PAGE; render(); }
   function changed() { syncInputs(); writeHash(); apply(); }
