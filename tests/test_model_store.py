@@ -90,3 +90,18 @@ def test_cli_known_and_validate_batch(tmp_path, capsys):
                      '{"name":"X2","website":"https://www.x.com/","firm_type":"big4","sources":["u"]}\n')
     assert main(["validate", str(batch)]) == 1        # same website twice -> duplicate id
     assert "duplicate id" in capsys.readouterr().out
+
+
+def test_merge_applies_site_check_fills(tmp_path):
+    import json
+    from cfadvisers.cli import main
+    (tmp_path / "research").mkdir()
+    (tmp_path / "research" / "b.jsonl").write_text(
+        '{"name":"X","website":"x.co.uk","firm_type":"independent_boutique","contact_email":"deals@x.co.uk","sources":["u"]}\n')
+    (tmp_path / "site_checks.jsonl").write_text(json.dumps(
+        {"id": "x-co-uk", "status": 200, "best_email": "info@x.co.uk", "phone": "0113 000 0000",
+         "team_url": "https://x.co.uk/team", "contact_url": None}) + "\n")
+    assert main(["--data", str(tmp_path), "merge", "--fresh"]) == 0
+    r = store.read_jsonl(tmp_path / "advisers.jsonl")[0]
+    assert r["contact_email"] == "deals@x.co.uk"          # research wins over the site check
+    assert r["contact_phone"] == "0113 000 0000" and r["team_url"] == "https://x.co.uk/team"

@@ -97,6 +97,11 @@ def cmd_merge(a):
     existing = [] if a.fresh else read_jsonl(d / "advisers.jsonl")
     rows, stats = store.merge(batches, existing, read_jsonl(d / "overrides.jsonl"),
                               store.read_excluded(d / "excluded.txt"), today=date.today().isoformat())
+    # contact fields found by check-sites fill only fields research and overrides left empty
+    from . import sitecheck
+    filled = sitecheck.fill(rows, read_jsonl(d / "site_checks.jsonl"))
+    if filled:
+        stats["filled_from_site_checks"] = filled
     write_jsonl(d / "advisers.jsonl", rows)
     _p(f"merged {len(files)} files: {stats}")
 

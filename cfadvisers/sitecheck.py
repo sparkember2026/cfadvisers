@@ -4,7 +4,8 @@ emails and phone numbers does the homepage show. Fills only empty fields; never 
     python -m cfadvisers check-sites [--fill] [--only ID ...] [--workers 8]
 
 Writes data/site_checks.jsonl (one line per adviser, latest run). With --fill, empty contact_email,
-contact_phone, team_url and contact_url in data/advisers.jsonl are filled from the check.
+contact_phone, team_url and contact_url in data/advisers.jsonl are filled from the check. `merge` applies the
+same fill from data/site_checks.jsonl after every merge, so the fills survive `merge --fresh`.
 """
 from __future__ import annotations
 
