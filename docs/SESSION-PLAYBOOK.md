@@ -58,6 +58,9 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
      for corrections);
    - merge, run `validate` and `pytest -q`, commit and push.
 
+   Gate commits on the real exit code: `pytest -q && python -m cfadvisers validate && git commit ...`. Seen 10-07:
+   `pytest -q | tail -1 && git commit` committed a failing test, because the pipe returns tail's exit code.
+
    Agents spot absorbed firms well (e.g. Lexington → FRP, Peterhouse → AlbR, Moore South → Moore Kingston Smith).
    Act on what they report.
 5. **Dedupe check after every merge.** The same firm can come in under two domains, or under a network
