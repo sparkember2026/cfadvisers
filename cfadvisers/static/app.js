@@ -39,6 +39,8 @@
     // static builds have no API: point the API button at the README instead
     const readme = () => { $("apiLink").href = "https://github.com/sparkember2026/cfadvisers#api"; };
     if (window.CFA_EMBED) readme(); else fetch("v1/health").then((r) => { if (!r.ok) throw 0; }).catch(readme);
+    // no PitchBook import yet: don't offer a sort that would rank every firm at zero
+    if (!STATS.with_pitchbook) { const o = document.querySelector('#sort option[value^="pitchbook"]'); if (o) o.remove(); }
     readHash();
     buildFilters();
     renderKpis();
