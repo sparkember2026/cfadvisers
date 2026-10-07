@@ -59,10 +59,14 @@ def cmd_stats(a):
 
 
 def cmd_validate(a):
-    rows = read_jsonl(Path(a.data) / "advisers.jsonl")
+    files = [Path(f) for f in a.files] if a.files else [Path(a.data) / "advisers.jsonl"]
+    rows = [r for f in files for r in read_jsonl(f)]
+    research = bool(a.files)
     bad, ids = 0, {}
     for r in rows:
         ps = model.problems(model.clean(r))
+        if research:  # research batches carry no id: merge assigns it from the website
+            r = {**r, "id": r.get("id") or model.make_id(model.clean(r))}
         if r.get("id") in ids:
             ps.append(f"duplicate id (also {ids[r['id']]})")
         ids[r.get("id")] = r.get("name")
@@ -71,6 +75,19 @@ def cmd_validate(a):
             _p(f"{r.get('id')}: {'; '.join(ps)}")
     _p(f"{len(rows)} records, {bad} with problems")
     return 1 if bad else 0
+
+
+def cmd_known(a):
+    lines = [f"{r['name']} | {r['website']} | {r['firm_type']} | {r.get('hq') or ''}"
+             for r in read_jsonl(Path(a.data) / "advisers.jsonl")]
+    excluded = store.read_excluded(Path(a.data) / "excluded.txt")
+    lines += [f"(excluded) {x}" for x in sorted(excluded)]
+    text = "\n".join(lines) + "\n"
+    if a.out:
+        Path(a.out).write_text(text, encoding="utf-8")
+        _p(f"{len(lines)} lines -> {a.out}")
+    else:
+        sys.stdout.write(text)
 
 
 def cmd_merge(a):
@@ -161,7 +178,13 @@ def main(argv=None) -> int:
     p.set_defaults(fn=cmd_find)
 
     sub.add_parser("stats", help="counts and coverage").set_defaults(fn=cmd_stats)
-    sub.add_parser("validate", help="check data/advisers.jsonl").set_defaults(fn=cmd_validate)
+    p = sub.add_parser("validate", help="check data/advisers.jsonl, or the given research batch files")
+    p.add_argument("files", nargs="*")
+    p.set_defaults(fn=cmd_validate)
+
+    p = sub.add_parser("known", help="one line per firm in the list (name | website | type | hq), for research agents")
+    p.add_argument("--out", default=None, help="write to this file (default: stdout)")
+    p.set_defaults(fn=cmd_known)
 
     p = sub.add_parser("merge", help="fold research batches into data/advisers.jsonl")
     p.add_argument("files", nargs="*")

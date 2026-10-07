@@ -78,3 +78,15 @@ def test_real_data_is_valid():
     assert len(ids) == len(set(ids))
     for r in rows:
         assert not model.problems(model.clean(r)), r["id"]
+
+
+def test_cli_known_and_validate_batch(tmp_path, capsys):
+    from cfadvisers.cli import main
+    assert main(["--data", str(FIX), "known"]) == 0
+    out = capsys.readouterr().out
+    assert "Alpha CF | https://alphacf.co.uk | independent_boutique | Leeds" in out
+    batch = tmp_path / "b.jsonl"
+    batch.write_text('{"name":"X","website":"x.com","firm_type":"big4","sources":["u"]}\n'
+                     '{"name":"X2","website":"https://www.x.com/","firm_type":"big4","sources":["u"]}\n')
+    assert main(["validate", str(batch)]) == 1        # same website twice -> duplicate id
+    assert "duplicate id" in capsys.readouterr().out

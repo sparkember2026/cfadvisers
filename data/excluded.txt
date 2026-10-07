@@ -6,3 +6,4 @@ rangewell-com  # SME funding platform, not an adviser
 swoopfunding-com  # SME funding platform, not an adviser
 carlsquare-com  # duplicate of carlsquare-com-carlsquare-in-the-united-kingdom (UK team record)
 peterhousecap-com  # absorbed into AlbR Capital (Oct 2025)
+lexingtoncf-co-uk  # acquired by FRP (July 2024); FRP is in the list

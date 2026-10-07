@@ -9,4 +9,11 @@ Method:
 - Only firms that are UK-based or have a UK CF team. Firm must be currently active (skip firms that have closed or been absorbed; if absorbed, the acquirer is the record).
 - Breadth matters more than perfection: aim for the target count; spend ~2-4 tool calls per firm, less for obvious ones. Big well-known firms can be filled mostly from knowledge plus one page check.
 
+Rules for parallel agents (docs/SESSION-PLAYBOOK.md):
+- WebSearch is a shared budget (~200 per turn for ALL agents): stay within the cap your segment gives you (default ~45).
+- Use your own scratch subdirectory (scratchpad/<your segment>/); other agents share the scratchpad.
+- Only write your own output file. Never delete records because you think another agent's segment covers them: the merge dedupes by website.
+- Validate your file with `python -m cfadvisers validate <your file>`.
+- Don't put guesses (e.g. an HQ city you weren't able to confirm) in a record: null, and say so in your report.
+
 Output: write records as JSON Lines (one compact JSON object per line) to the output file named below. APPEND as you go (every ~10 firms) so work isn't lost: e.g. use python to append. At the end, validate every line parses as JSON and has name+website+firm_type, and report the count and any notable data-quality caveats in your final message (keep the final message short: count, file, caveats). Do not create other files in the repo, and do not touch git.

@@ -45,7 +45,8 @@ curl 'http://127.0.0.1:8000/v1/advisers?sme=true&format=csv' > sme-advisers.csv
 python -m cfadvisers find --sme --region "Scotland"          # table in the terminal
 python -m cfadvisers find --sme --sector "Technology & Software" --csv tech.csv
 python -m cfadvisers stats
-python -m cfadvisers validate                                # check data/advisers.jsonl
+python -m cfadvisers validate [batch.jsonl ...]              # check data/advisers.jsonl or research batches
+python -m cfadvisers known --out data/existing_firms.txt     # firms already found, for research agents
 python -m cfadvisers merge                                   # fold data/research/*.jsonl into the list
 python -m cfadvisers pitchbook export.xlsx                   # PitchBook deal stats (docs/PITCHBOOK.md)
 python -m cfadvisers check-sites --fill                      # check websites; fill empty contact fields
@@ -72,4 +73,5 @@ draft. **Team sizes and deal sizes marked "estimate" need checking, and contact 
 ## Layout
 `cfadvisers/model.py` record vocabularies and derived fields · `store.py` load/merge/query · `api.py` HTTP API ·
 `static/` web app · `cli.py` commands · `pitchbook.py` PitchBook import · `sitecheck.py` website checks ·
-`data/` the list, research batches, overrides · `tests/` (`pytest -q`).
+`data/` the list, research batches, overrides · `tools/autosave.sh` · `tests/` (`pytest -q`).
+Working on the data in a Claude session: `docs/SESSION-PLAYBOOK.md`, `docs/HANDOFF.md`, `docs/CONTINUATION-PROMPT.md`.
