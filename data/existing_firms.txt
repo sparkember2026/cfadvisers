@@ -69,6 +69,7 @@ BKL | https://bkl.co.uk | accountancy_cf | London
 Blacksquare Advisory | https://blacksquareadvisory.com | independent_boutique | Manchester
 Blackwood Capital Group | https://www.blackwoodcapital.com | sector_specialist | London
 Blick Rothenberg | https://www.blickrothenberg.com | accountancy_cf | London
+Bluebox Corporate Finance | https://www.blueboxcfg.com | independent_boutique | London
 BMH Corporate Finance | https://bmhcf.co.uk | independent_boutique | Halifax
 Boxington Corporate Finance | https://boxington.com | sector_specialist | London
 Breeze Corporate Finance | https://www.breezecf.co.uk | independent_boutique | Nottingham
@@ -421,6 +422,7 @@ Spencer House Partners | https://www.spencerhousepartners.com | sector_specialis
 Spinnaker Corporate Finance | https://spinnaker-cf.co.uk | independent_boutique | Macclesfield
 SRC Advisory | https://www.srcadvisory.com | accountancy_cf | Brighton
 Steen Associates | https://www.steenassociates.com | sector_specialist | London
+Stephen Page & Partners | https://www.stephen-page.co.uk | business_broker | Devon
 Stifel | https://www.stifel.com | investment_bank | St. Louis
 STJ Advisors | https://www.stjadvisors.com | investment_bank | London
 Strand Hanson | https://www.strandhanson.co.uk | investment_bank | London
