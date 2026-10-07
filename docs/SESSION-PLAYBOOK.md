@@ -42,6 +42,20 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
   in searches. Most new firms will come from PitchBook (`docs/PITCHBOOK.md`) and from small-firm sources
   (Companies House "corporate finance" names checked against a working website).
 
+- **Two different limits; don't confuse them** (seen 10-07, from the session list's `rate_limit_info`):
+  1. **The web-search cap** (~200 per turn, shared by the agents in that turn) belongs to one session.
+     Another session (another chat tab) has its own, so parallel sessions do add search capacity.
+  2. **The account usage limit** (`rate_limit_info.rateLimitType: "seven_day"`, with a `resetsAt` time)
+     is shared by every session on the account, this repo's and scrape's alike. Extra tabs don't add to
+     it; they use it up faster. On 10-07 every session showed `status: "rejected"`, resetting
+     12 Oct 18:00 UTC.
+  - **Rule:** open a parallel session only for search-bound work, and only when the weekly limit has
+    room. Give each session its own research segment and batch file. Exactly one session merges into
+    `data/advisers.jsonl` and edits HANDOFF.
+  - **What a session can see:** `mcp__claude-code-remote__list_sessions` (mine: true) shows each live
+    session's status, branch, cost, context use and the shared weekly limit. It does not show remaining
+    web searches; no tool does.
+
 ## 3. The research loop (what worked)
 1. `python -m cfadvisers merge --fresh && python -m cfadvisers known --out data/existing_firms.txt`. Agents
    dedupe against this file.
