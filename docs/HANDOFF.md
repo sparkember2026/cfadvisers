@@ -44,6 +44,7 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
 - **Leads still open (no website found yet):** Vertex Corporate LLP (Manchester, £1-10m EV, OC430285),
   Dougold Partners (Antrim), MP CF, BGT Advisory and Pacem Advisory (NI), Ridgstone Advisory (NE),
   Odyssey CF (Birmingham).
+- **Companies House via Pixel:** `docs/FOR-PIXEL.md` asks Pixel (our database agent) for company numbers, status and history, and candidate firms; request file `data/companies_house/request.csv`. Import any `data/companies_house/matches.jsonl` that comes back.
 - **Findings:** regional league tables and Dealmakers shortlists are now nearly all known firms
   (all 12 regions, 2024-26). The accountancy networks are exhausted too. The Companies House scrape
   plus domain guessing was the best source of new SME boutiques.
