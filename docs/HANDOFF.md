@@ -3,6 +3,14 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-08 08:40 UTC, session 3 closes (704 firms)
+- **Start from `docs/NEXT-SESSION.md`** (state, next actions, open decisions, freshness stamp).
+- Session 3 overall: 609 -> 704 firms. Companies House bulk matching (396 firms resolved), code-only lead finder
+  (+18 firms), review-list fixes, session B merged (+72 firms, 35 reviewed fixes, 15 deal sizes upgraded), GitHub
+  Pages live, `main` is default, PitchBook ask for Joel ready (`docs/PITCHBOOK.md`), `message_for_pixel.md`
+  (owner chose: Pixel pulls from GitHub). Steps log: `cfadvisers_steps.jsonl` (82 steps, both repos). Raw scratch of both sessions: private repo `sparkember2026/private-data`.
+- Nothing running. Routine disabled. Session B finished. Cost (from get_session, 08:40 UTC): session 3 $29.01, session B $38.00, together ~$67 of the $250 credit.
+
 ## 2026-10-07, session 3 (eager-newton, branch claude/eager-newton-30tnay): demo link + Companies House
 
 ### State
@@ -65,7 +73,14 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   description fixed, UK presence flagged unverified (decide whether to keep). Sovereign now trades via Sovereign Business
   Brokers Ltd (17208073). Translink: consider switching website to https://translinkcf.uk. The rest are namesakes or
   internal renames: kept. 635 firms.
-- [ ] Merge session B's `wave6b_*` files if B was started.
+- [x] Merged session B round 1 (02:10 UTC): niche brokers 25, sector deals 5 (segment saturated), 35 proposals
+  applied (15 deal sizes from firms' own wording/deals, weak-evidence notes, 2 websites moved: venturecorporatefinance.com,
+  muras.co.uk; excluded Nicklin -> DJH, Summit Advisory, Grunberg). 662 firms. B round 2 running (directories, niche gaps).
+- [x] Merged session B round 2 (02:40 UTC): Daltons agent directory 33, niche gaps 9 net. **704 firms** (572 overlap
+  the SME band). B is finished (~136 web searches; web-search segments now close to exhausted; its notes and ideas:
+  `docs/SESSION-B-NOTES.md`). Revive Routine disabled at 02:45 UTC. B = session_01L1JEPg4636nDSRs4UU1C6E, branch
+  `claude/cfadvisers-continuation-345oy3`, started 01:03 UTC (told at 01:10 that it is session B; its pasted prompt
+  lacked that line). Routine re-enabled at 01:10 with a 10:00 UTC end; it fetches B's files hourly and merges them.
 
 ### Review list from the register (name matches only: check before excluding)
 - In liquidation: Livingstone Partners Limited; Sovereign Business Transfer Limited.

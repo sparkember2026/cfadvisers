@@ -159,3 +159,27 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
   extra-usage credit. A parallel session would spend the same credit. Open one only for search-bound work.
 - Seen in scrape (10-06): `claude -p` with Haiku to guess company domains cost ~$0.0005 a company but only 1 in
   187 guesses on the real gap was provable. Code-only domain guessing plus a register or site check did better.
+- Seen 10-08: a parallel session started with the short prompt but without the "you are session B" line behaved as a
+  main session until told. Roles that live in one pasted line are fragile; a claimable task list in the repo (scrape's
+  `tools/tasks.py` pattern) is the planned fix. Until then, check a new parallel session's first prompt
+  (`list_events`, kinds user) and `send_message` it if needed.
+- Seen 10-08: session B used ~136 web searches over 2 rounds for 72 firms; the Daltons agent directory (read by code)
+  gave 33 of them with 1 search. Directory-by-code beats search-by-agent here too.
+- Seen 10-08: session cost is readable: `get_session` -> `usage.cost_usd` (for any session on the account). Check it
+  instead of estimating; my guess ($20-25) was low (actual $29 for session 3, $38 for session B).
+- Seen 10-08: the scratchpad path changes when the session's working directory changes; republish the claude.ai demo
+  with the Artifact `url` parameter (not the old file path), or a new URL is created.
+- Seen 10-08: a parallel session that reports "ready for you to merge" is waiting; tell it when it is merged and that
+  it should stop, or it idles with an open loop.
+- Seen 10-08: start of session wrap-up: HANDOFF close entry + `docs/NEXT-SESSION.md` (freshness stamp) +
+  `cfadvisers_steps.jsonl` + playbook, then verify local HEAD == origin/main.
+- Seen 10-08 (session B): raw scratch is mostly HTML and compresses ~50x with `tar | xz -T0 -6` (2 GB -> 42 MB), so a
+  whole scratchpad fits in one file under GitHub's 100 MB limit. Third-party content (press articles, other firms'
+  pages, directory dumps) goes to the private repo `sparkember2026/private-data`, never to this public repo; split with
+  `split -b 90M` if an archive grows past 100 MB.
+- Seen 10-08 (session B): a session without its role line started as the main session; session A noticed and told it
+  via send_message. Start a parallel session's prompt with its role, and have it check `git ls-remote --heads` for
+  other live session branches before merging anything.
+- Seen 10-08 (session B): a parallel session must not commit shared derived files (e.g. `data/existing_firms.txt`
+  after `known --out`) but the stop hook nags about them each turn. `git update-index --skip-worktree <file>` keeps
+  the local copy for agents and silences the hook.
