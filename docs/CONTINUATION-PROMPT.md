@@ -5,7 +5,9 @@ Current numbers and the plan live in the top entry of docs/HANDOFF.md, not here,
 
 ```
 Continue the UK corporate finance advisers directory in this repo (sparkember2026/cfadvisers).
-Work on the branch this session was given (the latest work is on claude/eager-newton-30tnay: merge or check it out first), and commit + push to it often. No PR unless I ask.
+Work on the branch this session was given. First `git fetch origin main` and merge origin/main into it (main holds
+the merged, latest work). Commit + push to your branch often; when a round is merged and tests pass, also push it to
+main (`git push origin HEAD:main`, after merging origin/main). No PR unless I ask.
 
 START, in this order:
 1. Read CLAUDE.md, docs/SESSION-PLAYBOOK.md (how to run research here without losing work or running out of
@@ -45,5 +47,5 @@ Keep docs/HANDOFF.md current (a new top entry), and add new lessons to docs/SESS
 observations. Before you stop, or when context runs long: update HANDOFF, push.
 Finally, check the web app with Playwright (Chromium at /opt/pw-browsers), push, and republish the demo
 (python -m cfadvisers build-static --out <scratch>/demo --embed; Artifact publish to
-https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm with data/advisers.json and icon.svg as files).
+https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm; only the main research session republishes it with data/advisers.json and icon.svg as files).
 ```

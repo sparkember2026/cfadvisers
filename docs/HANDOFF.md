@@ -31,6 +31,11 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   `sw-co-uk` excluded. Found by the company-number check.
 - **Web app:** leopard icon (owner's request); a name search now says how many firms the filters hide, with
   "Search all firms" (before, searching a non-SME firm showed "No advisers match").
+- **Branches:** `main` (created 2026-10-08 from claude/eager-newton-30tnay) holds the merged, latest work; the owner
+  makes it the default branch. Sessions work on their own branch, merge origin/main first, and push merged rounds to
+  main. The Pages workflow builds from main and the working branch.
+- **Who updates the demo page:** only the main research session republishes https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm
+  (parallel sessions like B don't). The GitHub Pages site needs no one: it rebuilds on push.
 - No Routines exist (session 2's revive trigger is gone). No web searches used this session.
 
 ### Round 6a (session 3): Companies House leads -> 16 new firms (634)

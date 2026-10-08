@@ -12,6 +12,7 @@ work so that they never edit the same file.
 | writes | `data/advisers.jsonl`, `data/overrides.jsonl`, `data/excluded.txt`, `docs/HANDOFF.md`, `data/research/wave6a_*` | only **new** files: `data/research/wave6b_<segment>.jsonl`, `data/research/wave6b_proposals.jsonl`, `docs/SESSION-B-NOTES.md` |
 | merges | yes: fetches B's branch and merges B's files | **never** commits `data/advisers.jsonl`, `data/overrides.jsonl`, `data/excluded.txt` or HANDOFF |
 
+B never publishes the claude.ai demo page and never pushes to `main`; session A does both.
 B may run `python -m cfadvisers merge --fresh` locally to check duplicates, but then runs
 `git checkout -- data/advisers.jsonl` before committing. Start B's autosave as usual (`tools/autosave.sh 115` as a
 harness background task); it only commits files B changed.
