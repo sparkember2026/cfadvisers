@@ -165,3 +165,11 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
   (`list_events`, kinds user) and `send_message` it if needed.
 - Seen 10-08: session B used ~136 web searches over 2 rounds for 72 firms; the Daltons agent directory (read by code)
   gave 33 of them with 1 search. Directory-by-code beats search-by-agent here too.
+- Seen 10-08: session cost is readable: `get_session` -> `usage.cost_usd` (for any session on the account). Check it
+  instead of estimating; my guess ($20-25) was low (actual $29 for session 3, $38 for session B).
+- Seen 10-08: the scratchpad path changes when the session's working directory changes; republish the claude.ai demo
+  with the Artifact `url` parameter (not the old file path), or a new URL is created.
+- Seen 10-08: a parallel session that reports "ready for you to merge" is waiting; tell it when it is merged and that
+  it should stop, or it idles with an open loop.
+- Seen 10-08: start of session wrap-up: HANDOFF close entry + `docs/NEXT-SESSION.md` (freshness stamp) +
+  `cfadvisers_steps.jsonl` + playbook, then verify local HEAD == origin/main.

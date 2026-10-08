@@ -18,7 +18,7 @@ the merged, latest work). Commit + push to your branch often; when a round is me
 main (`git push origin HEAD:main`, after merging origin/main). No PR unless I ask.
 
 START, in this order:
-1. Read CLAUDE.md, docs/SESSION-PLAYBOOK.md (how to run research here without losing work or running out of
+1. Read docs/NEXT-SESSION.md (state, next actions, open decisions), CLAUDE.md, docs/SESSION-PLAYBOOK.md (how to run research here without losing work or running out of
    web searches), the top entry of docs/HANDOFF.md, and docs/RECORD-FORMAT.md.
 2. pip install -r requirements.txt; python -m pytest -q; python -m cfadvisers merge --fresh (then git diff --stat:
    if the list changed, a previous session's last autosave was never merged; review it);
