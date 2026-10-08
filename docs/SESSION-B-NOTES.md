@@ -21,3 +21,22 @@ Three background agents, ~45 WebSearch each:
   Franchise Resales, PPS, Cornerstone, Miller Commercial. ASG Commercial facts from Daltons/Rightmove (JS-only site).
   H.I. Resales is Home Instead's in-house resale arm (not independent). Goadsby (Bournemouth, hotels) is behind
   Cloudflare: check by hand.
+
+### wave6b_quality: done (35 proposals in data/research/wave6b_proposals.jsonl, 1 search)
+For session A to review before applying (all overrides validated on a scratch copy: 635 records, 0 problems).
+- Excludes (3): Nicklin (joined DJH June 2025; nicklin.com is an unrelated packaging firm; also proposes Halesowen
+  for DJH's offices); Summit Advisory (borderline: parent Elman Wall now redirects to Xeinadin, site © 2014);
+  Grunberg (borderline: no CF team).
+- Website changes (they change the merge key, so check against the batch files): Muras Baker Jones -> muras.co.uk
+  (mbj.co.uk parked); Venture CF -> venturecorporatefinance.com (.co.uk parked).
+- Register list: IBA Corporate still trades (sister company 12753346 active); VEXUS strike-off is a namesake (real
+  firm VEXUS Corporate Ltd 08143277; two override lines, apply both); Trillium weak (one-page site © 2020).
+  Kroll, Qiao, Westcotts, Mitchell Charlesworth, Translink: no change.
+- Weak-evidence records: Avero and Barrons now have 2026 deals. Sunset, Onward, Sterling CF: one adviser, formed
+  2026, no deals of their own. Stoneward, LuxCap, Cogito, Pinpoint: founders' track records only. Eleven Advisory =
+  5CL Ltd (Lewis Silkin group): parent proposed. No excludes proposed: A decides how strict to be.
+- Deal sizes (19): stated: Fawcus, Skye, Larking Gowen, Ascendant, NGA Care, Corbett Keeling; from deals: Champion,
+  Strand Hanson, Mayfield, Steen, Agnitio, TH Global, Ashcombe. Check Mayfield's min (5, below its smallest deal) and
+  Ashcombe's max (kept 250). Agnitio and TH Global deals are in mixed currencies, not converted.
+- Still unreadable (bot walls): GMcG, Hart Shaw, Kirk Rice, Mitchell Charlesworth; Moore NI still "coming soon".
+  About 80 estimate sites are JS or bot-walled and were not checked.
