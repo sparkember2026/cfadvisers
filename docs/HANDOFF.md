@@ -45,7 +45,8 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   Plutus CF (close to a loan broker), City & Westminster CF and NJB CF (sites dated 2020).
 - Not yet checked: the 67 proven sites with weak M&A wording (often JS-only sites; check `ma_score` 0-4 by hand
   or with Playwright), and the ~1,580 lower-likelihood candidates `ch_leads.py` filters out.
-- Demo republished (version 4, 634 firms). GitHub Pages workflow ran green; the owner still has to switch on Pages.
+- Demo republished (version 4, 634 firms). **GitHub Pages is live: https://sparkember2026.github.io/cfadvisers/**
+  (rebuilds itself on every push that changes data or app; checked in Chromium 10-08, 634 firms, no errors).
 
 ### Review list from the register (name matches only: check before excluding)
 - In liquidation: Livingstone Partners Limited; Sovereign Business Transfer Limited.

@@ -10,6 +10,12 @@ For each adviser: name, website, firm type, HQ and offices, regions covered, num
 core deal size (EBITDA and/or EV), sectors, services, contact details (email/phone, team page, contact
 page), a description and the source URLs. See `docs/RECORD-FORMAT.md`.
 
+## Live
+- **https://sparkember2026.github.io/cfadvisers/**: the web app, rebuilt automatically from `data/advisers.jsonl`
+  on every push that changes the data or the app (`.github/workflows/pages.yml`, published from the `gh-pages`
+  branch). The full data is also served as `data/advisers.json` and `uk-cf-advisers.csv` there.
+- Demo copy for sharing: https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm (republished by hand).
+
 ## Run it
 ```
 pip install -r requirements.txt
