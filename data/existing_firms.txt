@@ -24,6 +24,7 @@ AlbR Capital | https://albrcapital.com | investment_bank | London
 Aldridge Care Homes | https://aldridgecarehomes.co.uk | sector_specialist | Chatham
 Alexa Capital | https://www.alexa-capital.com | sector_specialist | London
 Alexander & Co | https://alexander.co.uk | accountancy_cf | Manchester
+Alfred Henry Corporate Finance | https://alfredhenry.com | investment_bank | London
 Alinea | https://www.alineacf.co.uk | independent_boutique | Birmingham
 Allenby Capital | https://www.allenbycapital.com | investment_bank | London
 Alliotts | https://www.alliotts.com | accountancy_cf | London
@@ -32,6 +33,8 @@ Alpha Helix | https://www.alphahelix.com | sector_specialist | London
 Altenburg Advisory | https://www.altenburgadvisory.com | debt_advisory | London
 Altius Group (Altius Corporate Finance) | https://altiusgroup.co.uk | business_broker | Preston
 Alvarez & Marsal Corporate Finance | https://www.alvarezandmarsal.com | investment_bank | New York
+Amica Corporate Finance | https://www.amicacf.co.uk | debt_advisory | Witney
+AMP Capital Advisory | https://www.ampcapitaladvisory.com | sector_specialist | London
 Ampersand Legal | https://ampersandlegal.co.uk | sector_specialist | 
 Anderson Barrowcliff | https://www.anderson-barrowcliff.co.uk | accountancy_cf | Stockton-on-Tees
 Anesi Advisors | https://anesiadvisors.com | independent_boutique | London
@@ -140,8 +143,10 @@ Christie & Co | https://www.christie.com | business_broker | London
 Christie Griffith | https://www.christiegriffith.co.uk | accountancy_cf | Glasgow
 Churchill Mergers | https://churchillmergers.com | business_broker | 
 Ciesco | https://www.ciesco.com | sector_specialist | London
+City & Westminster Corporate Finance | https://city-westminster.com | independent_boutique | London
 Clairfield UK | https://clairfield.com/clairfield-in-the-uk/ | independent_boutique | Birmingham
 Clarksons Securities | https://www.clarksons.com/financial/securities/investment-banking/ | investment_bank | London
+CleanTech Capital Advisors | https://www.cleantechcapitaladvisors.com | sector_specialist | London
 Clearwater | https://www.clearwatercf.com | independent_boutique | Birmingham
 Cleveland Scott | https://clevelandscott.co.uk | independent_boutique | Warrington
 Clive Owen | https://www.cliveowen.com | accountancy_cf | Darlington
@@ -180,6 +185,7 @@ Dains | https://www.dains.com | accountancy_cf | Birmingham
 Davy | https://www.davy.ie | investment_bank | Dublin
 DC Advisory | https://www.dcadvisory.com | investment_bank | London
 DC Care | https://www.dccare.co.uk | business_broker | Wetherby
+DC Dwek Corporate Finance | https://dcdwek.com | independent_boutique | London
 Dean Street Advisers | https://www.deanst.co.uk | independent_boutique | London
 Debrett's Advisory | https://debretts.com/advisory/ | independent_boutique | London
 Deloitte | https://www.deloitte.com/uk/en.html | big4 | London
@@ -306,6 +312,7 @@ ICON Corporate Finance | https://www.iconcorpfin.com | sector_specialist | Londo
 IDCM | https://idcm.eu | sector_specialist | London
 Ideal Exit | https://idealexit.com | business_broker | 
 IFA Acquisitions | https://ifa-acquisitions.co.uk | business_broker | Calne
+Ikarus Capital | https://www.ikaruscapital.com | sector_specialist | Richmond
 IMAP UK | https://www.imap.com | investment_bank | London
 Imperium Corporate Finance | https://www.imperiumcf.com | independent_boutique | Angmering
 IMPROVED Corporate Finance | https://improvedcf.com | sector_specialist | Amsterdam
@@ -362,6 +369,7 @@ LEES Accountants | https://leesaccountants.co.uk | accountancy_cf | Norwich
 Leith Mergers & Acquisitions | https://leithma.co.uk | independent_boutique | Dorking
 Leonard Curtis | https://www.leonardcurtis.co.uk | accountancy_cf | Manchester
 Lerner Associates | https://lernerassociates.com | sector_specialist | 
+Leslie James Acquisitions | https://lesliejamesacquisitions.com | sector_specialist | London
 Leyland Capital | https://leylandcapital.co.uk | independent_boutique | 
 Liberty Corporate Finance | https://www.liberty-cf.com | sector_specialist | London
 Lily Head Dental Practice Sales | https://www.dentalpracticesales.co.uk | business_broker | Leamington Spa
@@ -411,14 +419,17 @@ Morphose Capital Partners | https://www.morphose.co.uk | independent_boutique | 
 Morris & Young | https://www.morrisandyoung.co.uk | accountancy_cf | Perth
 Morton Christie | https://www.mortonchristie.co.uk | business_broker | Coventry
 Motion Advisory Partners | https://www.motionadvisorypartners.com | sector_specialist | London
+MP Corporate Finance | https://www.mp-corporatefinance.com | investment_bank | Vienna
 Muras Baker Jones | https://www.mbj.co.uk | accountancy_cf | Wolverhampton
 Myers La Roche | https://myerslaroche.co.uk | business_broker | Altrincham
+Mystic Capital Advisors | https://mysticcapital.com | sector_specialist | New York
 Nelson Advisors | https://www.nelsonadvisors.co.uk | sector_specialist | London
 Newbrook Capital Solutions | https://newcapsolutions.com | debt_advisory | London
 NGA Care | https://www.ngacare.co.uk | sector_specialist | Leicester
 Nicholsons | https://www.nicholsonscharteredaccountants.co.uk | accountancy_cf | Lincoln
 Nicklin | https://www.nicklin.com | accountancy_cf | Halesowen
 NINE58 | https://www.nine58.com | independent_boutique | London
+NJB Corporate Finance | https://njbcorporatefinance.com | independent_boutique | Omagh
 Noble & Co | https://nobleandcompany.com | independent_boutique | Edinburgh
 Novistra Capital | https://novistra.com | sector_specialist | London
 NovitasFTCL | https://www.novitasftcl.com | sector_specialist | London
@@ -457,6 +468,7 @@ PJT Partners | https://www.pjtpartners.com | investment_bank | New York
 PKF Francis Clark | https://pkf-francisclark.co.uk | accountancy_cf | Exeter
 PKF Littlejohn | https://www.pkf-l.com | accountancy_cf | London
 PKF Smith Cooper | https://www.pkfsmithcooper.com | accountancy_cf | Derby
+Plutus Corporate Finance | https://plutuscf.com | debt_advisory | Bury
 PM+M | https://www.pmm.co.uk | accountancy_cf | Blackburn
 Polestar CF | https://polestarcf.com | independent_boutique | Guildford
 Power Accountants | https://www.power-accountants.co.uk | accountancy_cf | Chester
@@ -482,6 +494,7 @@ Raven Partners | https://ravenpartners.com | sector_specialist | London
 Raymond James | https://www.raymondjames.uk.com | investment_bank | St. Petersburg, Florida
 Recruitment Mergers | https://recruitmentmergers.com | sector_specialist | Bristol
 Redwoods Dowling Kerr | https://redwoodsdk.com | business_broker | Preston
+Regal Business Sales | https://www.regalbusinesssales.co.uk | business_broker | Manchester
 Resolution Partners | https://resolution-partners.co.uk | sector_specialist | London
 Restoration Partners | https://www.restoration-partners.com | sector_specialist | London
 Richmond Capital Partners | https://richmondcapitalpartners.com | sector_specialist | London
@@ -517,6 +530,7 @@ Sequence Advisers | https://sequenceadvisers.co.uk | sector_specialist | London
 Shard Capital | https://www.shardcapital.com | investment_bank | London
 Shaw & Co | https://www.shawcorporatefinance.com | independent_boutique | Bristol
 Shaw Gibbs | https://www.shawgibbs.com | accountancy_cf | Oxford
+Shield Corporate Finance | https://www.sellingabusinessformore.co.uk | independent_boutique | Bournemouth
 Shore Capital | https://www.shorecap.co.uk | investment_bank | London
 Shorts | https://www.shorts.uk.com | accountancy_cf | Sheffield
 SI Global | https://www.siglobal.com | sector_specialist | London
@@ -573,6 +587,7 @@ Transcend Corporate | https://transcendcorporate.com | independent_boutique | Bi
 Translink Corporate Finance UK | https://translinkcf.com/teams-and-offices/united-kingdom | independent_boutique | Leicester
 Travel Trade Consultancy | https://traveltradeconsultancy.co.uk | sector_specialist | London
 Treehill Partners | https://treehillpartners.com | sector_specialist | London
+Trevally Capital Advisers | https://www.trevallycapitaladvisers.co.uk | sector_specialist | London
 Trillium Corporate Finance | https://trillium-cf.com | independent_boutique | London
 Tura Advisory | https://www.turaadvisory.com | sector_specialist | London
 Turner Pope Investments | https://www.turnerpope.com | investment_bank | London
@@ -584,6 +599,7 @@ Unity Advisory | https://unity-advisory.com | accountancy_cf | London
 UNW | https://unw.co.uk | accountancy_cf | Newcastle upon Tyne
 Uscita Solutions | https://www.uscita.co.uk | business_broker | Northwich
 VAMOS M&A Advisory | https://www.vamosbusiness.com | business_broker | Chelmsford
+Venero Capital Advisors | https://www.venerocapitaladvisors.com | independent_boutique | London
 Venture Corporate Finance | https://venturecorporatefinance.co.uk | sector_specialist | London
 Verdier & Co | https://www.verdierandco.com | sector_specialist | London
 Vet Dynamics | https://vetdynamics.co.uk | sector_specialist | 
