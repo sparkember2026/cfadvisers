@@ -65,7 +65,10 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   description fixed, UK presence flagged unverified (decide whether to keep). Sovereign now trades via Sovereign Business
   Brokers Ltd (17208073). Translink: consider switching website to https://translinkcf.uk. The rest are namesakes or
   internal renames: kept. 635 firms.
-- [ ] Merge session B's `wave6b_*` files. B = session_01L1JEPg4636nDSRs4UU1C6E, branch
+- [x] Merged session B round 1 (02:10 UTC): niche brokers 25, sector deals 5 (segment saturated), 35 proposals
+  applied (15 deal sizes from firms' own wording/deals, weak-evidence notes, 2 websites moved: venturecorporatefinance.com,
+  muras.co.uk; excluded Nicklin -> DJH, Summit Advisory, Grunberg). 662 firms. B round 2 running (directories, niche gaps).
+- [ ] Merge session B round 2. B = session_01L1JEPg4636nDSRs4UU1C6E, branch
   `claude/cfadvisers-continuation-345oy3`, started 01:03 UTC (told at 01:10 that it is session B; its pasted prompt
   lacked that line). Routine re-enabled at 01:10 with a 10:00 UTC end; it fetches B's files hourly and merges them.
 

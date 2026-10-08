@@ -12,3 +12,8 @@ navig8advisory-com  # Navig8 is Langricks' transaction-support arm; the record i
 mooresouth-co-uk  # Moore South has joined Moore Kingston Smith (its own site, checked 2026-10-07); the record is mooreks-co-uk
 sw-co-uk  # wrong domain: sw.co.uk is Sanderson Weatherall; S&W re-added as swgroup-com via overrides (2026-10-07)
 corpfin-co-uk  # Founder and sole director Chris Silverwood died suddenly (BusinessCloud, 3 Jul 2026). CORPFIN LIMITED (11110930), the company named on the site, filed dormant accounts for 2024, has overdue filings, and has a compulsory strike-off gazetted Sep 2026. The site has not been updated since 2023 (copyright 2023), and no acquirer or successor was found. (review 2026-10-08)
+nicklin-com  # Nicklin (Halesowen accountants) joined DJH in June 2025: nicklins.co.uk now redirects to DJH's Halesowen office page, which says 'Nicklin are now DJH ... Joining our group in June 2025'. The record's website nicklin.com  (session B proposal, 2026-10-08)
+grunberg-co-uk  # Borderline: no corporate finance team. The 'Corporate finance' page is about finance raising ('we can provide practical advice and also introduce you to our network of professional contacts'); the exit-planning page offe (session B proposal, 2026-10-08)
+summitadvisory-co-uk  # Legacy site: Summit Advisory was the M&A arm of travel accountants Elman Wall, and elmanwall.co.uk now redirects to Xeinadin's London office page (Elman Wall absorbed into Xeinadin, already listed). The Summit site is '© (session B proposal, 2026-10-08)
+venturecorporatefinance-co-uk  # domain parked; record moved to venturecorporatefinance-com (session B proposal, 2026-10-08)
+mbj-co-uk  # domain parked; record moved to muras-co-uk (session B proposal, 2026-10-08)
