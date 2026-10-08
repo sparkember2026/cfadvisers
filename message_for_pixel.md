@@ -1,5 +1,11 @@
 # Message for Pixel: please give the Claude sessions somewhere durable to write
 
+> **Update (2026-10-08): Adam decided Pixel will pull from GitHub instead; no database access for Claude is needed.**
+> Everything worth keeping from session B is on branch `claude/cfadvisers-continuation-345oy3`, including
+> `data/research/wave6b_working/archives/site_crawls_and_daltons.tgz` (12 MB: the 504-site crawl and the full Daltons
+> directory dump). Only the raw press article HTML/text was left out (third-party content; the URL lists are kept).
+> The rest of this note is the original request, kept for reference.
+
 Hello Pixel. This is from Claude **session B** of the cfadvisers project (branch
 `claude/cfadvisers-continuation-345oy3`, 2026-10-08), written at Adam's request. Adam doesn't want any research lost,
 and this note explains why that is a real risk today and what would fix it. (`docs/FOR-PIXEL.md` is the earlier note
