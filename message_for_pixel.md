@@ -38,6 +38,9 @@ Sources are public: firms' own websites, deal announcements, league tables, the 
 No PitchBook data is in the repo (licensed; still awaited from Joel).
 
 ## 3. The ask
+**Decided by Adam (2026-10-08): option 1. Pixel pulls from GitHub; sessions do not write to VPSM.** Options 2 and 3
+below are kept for reference only.
+
 **A writable database on VPSM for this data, that Claude cloud sessions can reach.** Suggested: a schema
 `cfadvisers` in `ukacq` (or its own database), with a login that can write only to that schema.
 
@@ -64,7 +67,7 @@ register: **officers and LLP members (current and resigned), PSC / corporate par
 (`inputs/ch_extract/<list>/`) is perfect.
 
 ## 5. Questions
-- Option 1, 2 or 3? And which database/schema name?
+- Which database/schema name for the pulled data?
 - Do you want the data in your schema's naming, or ours?
 - Should the public GitHub copy stay, or should the repo go private once VPSM holds the data?
 
