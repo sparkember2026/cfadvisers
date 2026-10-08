@@ -40,3 +40,19 @@ For session A to review before applying (all overrides validated on a scratch co
   Ashcombe's max (kept 250). Agnitio and TH Global deals are in mixed currencies, not converted.
 - Still unreadable (bot walls): GMcG, Hart Shaw, Kirk Rice, Mitchell Charlesworth; Moore NI still "coming soon".
   About 80 estimate sites are JS or bot-walled and were not checked.
+
+### wave6b_sector_deals: done (5 firms, 45 searches)
+- Valid, no duplicates. MDW Capital Partners (debt), Horizon (horizontas.co.uk, Midlands, HQ null), sjl advisory
+  (haulage), fds (Wakefield, EOT), DTE CF (Bury; press sources only, dte.co.uk bot-walled).
+- **This segment is saturated:** ~7,000 deal articles parsed (business-sale.com, Business Live, bdaily, Comms Dealer,
+  Car Dealer, IT Channel Oxygen); almost every adviser named is already listed.
+- Absorbed (none of them is in the list; don't add): GS Verde -> AAB, Springboard -> BTG, Fellwood -> Cooper Parry,
+  Beever and Struthers -> Menzies, IMAS -> MarshBerry, Spectrum -> FRP, Clarkson Hyde -> Affinia, Torr Waterfield ->
+  Duncan & Toplis, Ensors -> Azets, Sagars -> AAB, Ashgates -> DJH, Carter Backer Winter -> Gravita; Bracebridge
+  dormant (founder at Headpoint, listed); Oakley Advisory domain dead; WilliamsAli acquired 2024 (buyer unknown).
+- Aliases: Orbis Partners = Clairfield UK; SRC CF = SRC Advisory; Kings Corporate / Business Buyers = Altius.
+- No website found: Vertex Corporate (Manchester/Birmingham), Tide Advisory (Swansea), BPU (Wales).
+
+### Round 1 lessons (seen 10-08)
+- Press deal sweeps no longer pay (5 firms from ~7,000 articles). Directory APIs do: the Daltons Business agent
+  directory (WordPress REST API, ~1,590 agents) gave most of the 25 niche brokers at no search cost.
