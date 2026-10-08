@@ -8,7 +8,7 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
 - Session 3 overall: 609 -> 704 firms. Companies House bulk matching (396 firms resolved), code-only lead finder
   (+18 firms), review-list fixes, session B merged (+72 firms, 35 reviewed fixes, 15 deal sizes upgraded), GitHub
   Pages live, `main` is default, PitchBook ask for Joel ready (`docs/PITCHBOOK.md`), `message_for_pixel.md`
-  (owner chose: Pixel pulls from GitHub). Steps log: `cfadvisers_steps.jsonl` (79 steps, both repos).
+  (owner chose: Pixel pulls from GitHub). Steps log: `cfadvisers_steps.jsonl` (82 steps, both repos). Raw scratch of both sessions: private repo `sparkember2026/private-data`.
 - Nothing running. Routine disabled. Session B finished. Cost (from get_session, 08:40 UTC): session 3 $29.01, session B $38.00, together ~$67 of the $250 credit.
 
 ## 2026-10-07, session 3 (eager-newton, branch claude/eager-newton-30tnay): demo link + Companies House

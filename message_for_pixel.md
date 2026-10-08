@@ -7,8 +7,9 @@ cloud containers or on one GitHub repo. Below: the situation, what exists and wh
 ## 1. The situation
 - **Nothing is at risk today.** Everything is committed and pushed to GitHub (`sparkember2026/cfadvisers`, branch
   `main`; the session branches `claude/eager-newton-30tnay`, `claude/vibrant-gauss-w847ef` and
-  `claude/cfadvisers-continuation-345oy3` are all merged into it). The only things left in the containers are scratch
-  files: screenshots, cached web pages, and the public Companies House bulk zip (re-downloadable).
+  `claude/cfadvisers-continuation-345oy3` are all merged into it). Both sessions' scratch files (cached web pages, ~7,000 deal
+  articles, site crawls, screenshots) are saved in the private repo `sparkember2026/private-data`; only the public
+  Companies House bulk zip (re-downloadable) is not kept anywhere.
 - **Why ask anyway:** a cloud container is reclaimed a few minutes after its session goes idle, and the repo is
   currently public. Adam wants a copy of the data in our own database, and a place sessions can write to as they
   work. You hold `ukacq`, which is also where this data belongs next to Companies House.

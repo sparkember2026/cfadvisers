@@ -1,12 +1,20 @@
 # Next session: start here
 
-**Fresh as of 2026-10-08 08:40 UTC** (end of session 3, eager-newton). If this stamp is older than the top entry of
+**Fresh as of 2026-10-08 09:00 UTC** (end of session 3, eager-newton; raw-data pointers added by session B at its wrap-up). If this stamp is older than the top entry of
 `docs/HANDOFF.md`, trust HANDOFF.
 
 ## State
 - **704 firms** in `data/advisers.jsonl` (572 overlap £0.5-2m EBITDA). 396 matched to Companies House
   (`data/companies_house/resolved.jsonl`). Deal size basis: stated 89, from deals 55, estimate 550, unknown 10.
-- `main` is the default branch and holds everything; every session branch is merged into it.
+- `main` is the default branch and holds every curated result; every session branch's results are merged into it.
+- **Raw working data lives in the private repo `sparkember2026/private-data`** (not here: third-party content, and too
+  big for a public repo):
+  - `cfadvisers-session3-scratch-2026-10-08/`: session 3's scratch (agents' files, leads, snapshots, demo build).
+  - `cfadvisers-session-b-2026-10-08/`: session B's whole scratchpad, ~2 GB / 12,104 files as one 42 MB xz archive
+    (`cat parts/* | xz -d | tar xf -`): ~7,000 UK deal articles (raw HTML + text corpora), the 504-site adviser crawl,
+    the full Daltons agent directory (1,591), screening pages, all agent scripts. README, MANIFEST, SHA256SUMS inside.
+  - Branch `claude/cfadvisers-continuation-345oy3` also carries `data/research/wave6b_working/` (B's scripts, lists and a
+    12 MB crawl/Daltons archive); not merged into main on purpose, superseded by private-data.
 - Live: https://sparkember2026.github.io/cfadvisers/ (rebuilds itself on push to main) and
   https://claude.ai/artifact/WqTi83zQdLHVdbKXErHeJm (republish by hand: `build-static --out <scratch>/demo --embed`,
   then Artifact publish with `url` = that link, files `data/advisers.json` + `icon.svg`).
@@ -19,7 +27,8 @@
    `data/pitchbook_raw/`, never commit it), review `data/pitchbook_unmatched.csv`, add the real CF advisers.
 2. **When Pixel's ukacq extract arrives** (officers, PSC, websites; `message_for_pixel.md`, `docs/FOR-PIXEL.md` s6):
    load it into `data/companies_house/ukacq/`, add team counts / parents / candidate websites.
-3. **Otherwise, code-first research** (web search is nearly exhausted): other broker/agent directories read by code
+3. **Otherwise, code-first research.** Cheapest first: re-mine session B's ~7,000 deal articles in private-data for
+   deal sizes and named dealmakers per adviser (no web searches). Then (web search is nearly exhausted): other broker/agent directories read by code
    (BusinessesForSale etc. are Cloudflare-blocked; try others), and Playwright on the ~80 JS-only sites with estimated
    deal sizes to find the firms' own wording.
 

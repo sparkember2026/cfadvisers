@@ -173,3 +173,13 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
   it should stop, or it idles with an open loop.
 - Seen 10-08: start of session wrap-up: HANDOFF close entry + `docs/NEXT-SESSION.md` (freshness stamp) +
   `cfadvisers_steps.jsonl` + playbook, then verify local HEAD == origin/main.
+- Seen 10-08 (session B): raw scratch is mostly HTML and compresses ~50x with `tar | xz -T0 -6` (2 GB -> 42 MB), so a
+  whole scratchpad fits in one file under GitHub's 100 MB limit. Third-party content (press articles, other firms'
+  pages, directory dumps) goes to the private repo `sparkember2026/private-data`, never to this public repo; split with
+  `split -b 90M` if an archive grows past 100 MB.
+- Seen 10-08 (session B): a session without its role line started as the main session; session A noticed and told it
+  via send_message. Start a parallel session's prompt with its role, and have it check `git ls-remote --heads` for
+  other live session branches before merging anything.
+- Seen 10-08 (session B): a parallel session must not commit shared derived files (e.g. `data/existing_firms.txt`
+  after `known --out`) but the stop hook nags about them each turn. `git update-index --skip-worktree <file>` keeps
+  the local copy for agents and silences the hook.
