@@ -55,7 +55,8 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
 
 ### Overnight 2026-10-08 (session 3): list and Routine
 - **Routine `trig_01D4F5WpTKagQ6oX3uEYitEg`** ("cfadvisers overnight revive", hourly at :37, bound to session 3). It
-  disables itself after 08:00 UTC 10-08 or when this list is done. If it is still enabled later, disable it.
+  was disabled at 00:47 UTC 10-08: the list was done and session B had not been started. Re-enable it
+  (update_trigger enabled=true) if B runs overnight and its files need merging.
 - [x] Browser re-scoring of the 67 weak-wording lead sites: done (`tools/render_leads.py`, 3 strong). An agent checks
   6 leads (Digital Edge CF, Nexus Capital Advisory, Edwards Business Sales, Oasis Corporate Advisory, Blackhawk, Astir)
   -> `data/research/wave6a_ch_leads_3.jsonl`: 2 added (Digital Edge CF, Edwards Business Sales), 4 rejected.
