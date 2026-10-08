@@ -1,0 +1,15 @@
+recs.append(rec(name="The Firebird Partnership",website="https://www.firebirdpartnership.com",firm_type="sector_specialist",hq="Winchester",hq_region="South East",
+ offices=["Winchester"],coverage="national",services=["sell_side","buy_side","fundraising","mbo","due_diligence"],
+ cf_professionals=8,cf_professionals_basis="team_page",deal_ev_min_m=1,deal_ev_max_m=20,deal_size_basis="estimate",
+ deal_size_note="Across our careers we've completed over 100 transactions including fundraising, MBOs, MBIs, full and partial exits",
+ sectors=["Leisure & Hospitality","Education"],sector_note="Travel and leisure specialist: tour operators, travel agencies and travel groups, plus some education and leisure businesses; AITO business partner (Corporate Finance/M&A)",
+ contact_email="ian@firebirdpartnership.com",contact_phone="07736 226118",contact_url="https://www.firebirdpartnership.com/contact-us",
+ description="Travel and leisure growth consultancy and corporate finance adviser led by Stewart Lambert and Ian Finlay with six fellow directors, advising travel company owners on full and partial exits, acquisitions, MBOs and fundraising.",
+ sources=["https://www.firebirdpartnership.com","https://www.firebirdpartnership.com/contact-us","https://www.aito.com/aito-information/aito-business-partners"]))
+recs.append(rec(name="Funeral Business Central",website="https://funeralbusinesscentral.co.uk",firm_type="sector_specialist",hq=None,hq_region=None,
+ offices=[],coverage="national",services=["sell_side","buy_side","valuations","due_diligence"],cf_professionals=None,
+ deal_ev_min_m=0.5,deal_ev_max_m=5,deal_size_basis="estimate",
+ sectors=["Business Services"],sector_note="Specialist adviser to the UK independent funeral sector: exit planning and sale advice for funeral directors (acting only for the seller), plus separate buy-side acquisition advice and due diligence for buyers and investors",
+ contact_phone="0778 899 6505",contact_url="https://funeralbusinesscentral.co.uk/contact/",team_url="https://funeralbusinesscentral.co.uk/about/",
+ description="Specialist advisory practice for independent UK funeral businesses founded by business consultant Dominic Watson, advising owners on valuation and sale to consolidators, PE platforms or EOTs, and advising buyers separately. It is a trading name of Rockstar Retirement Ltd (registered office St Asaph, Wales); no office location is published.",
+ sources=["https://funeralbusinesscentral.co.uk/","https://funeralbusinesscentral.co.uk/about/","https://funeralbusinesscentral.co.uk/services/exit-planning/","https://funeralbusinesscentral.co.uk/privacy/"]))

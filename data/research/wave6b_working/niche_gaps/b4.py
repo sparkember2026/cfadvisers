@@ -1,0 +1,15 @@
+recs.append(rec(name="A4G",website="https://www.a4g-llp.co.uk",firm_type="accountancy_cf",hq="Wrotham Heath",hq_region="South East",
+ offices=["Wrotham Heath"],coverage="regional",regions_covered=["South East","London"],services=["sell_side","buy_side","mbo","valuations","due_diligence"],
+ deal_ev_min_m=0.5,deal_ev_max_m=10,deal_size_basis="estimate",
+ sectors=["Construction & Property","Dental & Veterinary","Professional Services"],
+ sector_note="Accountancy firm's SME M&A service with stated focus on construction, architecture, property and veterinary practices (firm also specialises in vets and dentists); covers third-party sales, MBOs, EOTs and buy-side acquisitions",
+ contact_email="enquiries@a4g-llp.co.uk",contact_phone="01474 853856",contact_url="https://www.a4g-llp.co.uk/contact",linkedin_url="https://www.linkedin.com/company/a4g-llp",
+ description="Kent chartered accountants (Kent, London and South East) with an SME M&A advisory service covering exit readiness, valuation, buyer sourcing and negotiation, MBO/EOT exits and acquisition searches for owner-managed businesses.",
+ sources=["https://www.a4g-llp.co.uk/services/sell-merge-or-buy-a-business-ma-advisers-for-smes","https://www.a4g-llp.co.uk/contact"]))
+recs.append(rec(name="IDEX Consulting",website="https://www.idexconsulting.com",firm_type="sector_specialist",hq="London",hq_region="London",
+ offices=["London"],coverage="national",services=["sell_side","buy_side","valuations"],cf_professionals=3,cf_professionals_basis="team_page",
+ deal_ev_min_m=None,deal_ev_max_m=None,deal_size_basis=None,deal_size_note="introduced clients to over £750 million GWP of opportunity and added over £100 million of value to firms",
+ sectors=["Financial Services"],sector_note="Insurance and financial services specialist (recruitment consultancy with an M&A arm launched for brokers and MGAs); buy-side and sell-side for insurance broking businesses, e.g. sourcing broker acquisitions for Clear Insurance Management",
+ contact_email="contact@idexconsulting.com",contact_phone="0333 700 4339",contact_url="https://www.idexconsulting.com/contact-us",team_url="https://www.idexconsulting.com/m-and-a",linkedin_url="https://www.linkedin.com/company/idex-consulting-ltd",
+ description="Insurance and financial services recruitment and business-growth consultancy whose M&A team (David Carr, Colin McKenna, James Salmon) advises insurance brokers, MGAs and PE on acquisitions and exits; the London address is its head office (the other UK offices listed are recruitment offices).",
+ sources=["https://www.idexconsulting.com/m-and-a","https://www.idexconsulting.com/contact-us","https://www.reinsurancene.ws/idex-consulting-launches-ma-advisory-service-for-brokers-and-mgas/"]))

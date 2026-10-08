@@ -1,0 +1,1 @@
+for u in "$@"; do echo "== $u"; curl -sL --max-time 20 -A "Mozilla/5.0" "$u" | python3 -c "import sys,re,html;t=sys.stdin.read();t=re.sub(r'<script.*?</script>|<style.*?</style>','',t,flags=re.S);print(re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>',' ',t)))[:${N:-800}])"; done

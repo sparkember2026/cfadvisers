@@ -1,0 +1,15 @@
+recs.append(rec(name="Starling Corporate",website="https://starlingcorporate.com",firm_type="business_broker",hq="Leeds",hq_region="Yorkshire and the Humber",
+ offices=["Leeds","London","Edinburgh"],coverage="national",services=["sell_side","buy_side"],
+ deal_ev_min_m=1,deal_ev_max_m=10,deal_size_basis="estimate",deal_size_note=None,
+ sector_note="Generalist sell-side company sales broker for privately owned SMEs; not sector specialist",
+ contact_email="info@starlingcorporate.com",contact_phone="0333 0151 548",contact_url="https://starlingcorporate.com/contact-us/",
+ description="Leeds-headquartered business and company sales specialist offering director-led sell-side brokerage to UK owner-managed businesses, with contact points in London and Edinburgh (London address is a Kemp House, City Road registered-office address).",
+ sources=["https://starlingcorporate.com","https://starlingcorporate.com/about-us/","https://starlingcorporate.com/contact-us/","https://www.gpmg.uk/winners/m-a-today-global-awards-2026"]))
+recs.append(rec(name="TheNonExec",website="https://www.thenonexecutive.com",firm_type="independent_boutique",hq="Poole",hq_region="South West",
+ offices=["Poole"],coverage="national",services=["sell_side","valuations"],cf_professionals=2,cf_professionals_basis="estimate",
+ deal_ev_min_m=5,deal_ev_max_m=50,deal_size_basis="estimate",deal_size_note="Helped steward deals worth over £300 million globally; over 17 transactions advised",
+ sector_note="Generalist founder-exit boutique; case studies in metrology/inspection systems (Sempre Group to Oxford Metrics), energy (Empower Energy to Good Energy) and building products (Mayfield Group to Epwin)",
+ sectors=["Generalist","Industrials & Manufacturing","Energy & Renewables"],
+ contact_phone="+44 (0)1202 828266",contact_url="https://www.thenonexecutive.com/contact/",team_url="https://www.thenonexecutive.com/leadership/",
+ description="Lean, virtual sell-side M&A boutique based in Poole, Dorset, led by Justin Levine (ex-Schneider Electric), selling founder-owned UK companies to strategic and PE buyers, with offshore analyst support in India.",
+ sources=["https://www.thenonexecutive.com","https://www.thenonexecutive.com/contact/","https://www.thenonexecutive.com/leadership/","https://www.thenonexecutive.com/deals/"]))
