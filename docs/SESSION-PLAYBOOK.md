@@ -159,3 +159,9 @@ repo sparkember2026/scrape (`docs/KEEP-RUNNING.md`, 10-05 to 10-07), which ran u
   extra-usage credit. A parallel session would spend the same credit. Open one only for search-bound work.
 - Seen in scrape (10-06): `claude -p` with Haiku to guess company domains cost ~$0.0005 a company but only 1 in
   187 guesses on the real gap was provable. Code-only domain guessing plus a register or site check did better.
+- Seen 10-08: a parallel session started with the short prompt but without the "you are session B" line behaved as a
+  main session until told. Roles that live in one pasted line are fragile; a claimable task list in the repo (scrape's
+  `tools/tasks.py` pattern) is the planned fix. Until then, check a new parallel session's first prompt
+  (`list_events`, kinds user) and `send_message` it if needed.
+- Seen 10-08: session B used ~136 web searches over 2 rounds for 72 firms; the Daltons agent directory (read by code)
+  gave 33 of them with 1 search. Directory-by-code beats search-by-agent here too.

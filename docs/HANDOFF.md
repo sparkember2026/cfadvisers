@@ -68,7 +68,9 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
 - [x] Merged session B round 1 (02:10 UTC): niche brokers 25, sector deals 5 (segment saturated), 35 proposals
   applied (15 deal sizes from firms' own wording/deals, weak-evidence notes, 2 websites moved: venturecorporatefinance.com,
   muras.co.uk; excluded Nicklin -> DJH, Summit Advisory, Grunberg). 662 firms. B round 2 running (directories, niche gaps).
-- [ ] Merge session B round 2. B = session_01L1JEPg4636nDSRs4UU1C6E, branch
+- [x] Merged session B round 2 (02:40 UTC): Daltons agent directory 33, niche gaps 9 net. **704 firms** (572 overlap
+  the SME band). B is finished (~136 web searches; web-search segments now close to exhausted; its notes and ideas:
+  `docs/SESSION-B-NOTES.md`). Revive Routine disabled at 02:45 UTC. B = session_01L1JEPg4636nDSRs4UU1C6E, branch
   `claude/cfadvisers-continuation-345oy3`, started 01:03 UTC (told at 01:10 that it is session B; its pasted prompt
   lacked that line). Routine re-enabled at 01:10 with a 10:00 UTC end; it fetches B's files hourly and merges them.
 
