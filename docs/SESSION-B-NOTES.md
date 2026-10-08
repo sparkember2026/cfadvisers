@@ -60,3 +60,16 @@ For session A to review before applying (all overrides validated on a scratch co
 ## Round 2 (2026-10-08): started
 - `wave6b_directories`: broker directories read by code (rest of Daltons agents, other listing-site agent lists).
 - `wave6b_niche_gaps`: the niche sectors round 1 missed (IT/MSP, recruitment, agencies, insurance, opticians, funeral, travel, agri).
+
+### wave6b_directories: done (33 firms, 1 search)
+- Valid, no duplicates against the list or the other wave6b files. All from the Daltons agent directory (1,591
+  agents; ~767 UK candidates after dedupe and redirect checks, screened by name and homepage wording, then confirmed
+  on each firm's site). BusinessesForSale.com, Rightbiz, BizBuySell and Better Retailing return 403 (Cloudflare).
+- Mostly general business transfer agents (26); 3 sell-side boutiques (Clarendon Square, Kingsbrook, EvolutionCBS);
+  4 sector specialists (Alexander Mackie: garden centres; First Peninsula Marine; Addisons: estate agencies;
+  Saville & Woods: post offices).
+- Caveats for A: HQ null for The Business Sales Agency and DM Hall; Diverco HQ = registered office (Redditch).
+  Independent Businesses For Sale belongs to Business Transfer Group (other brands may appear under other domains).
+  Transworld UK facts via WebFetch (JS site). Sell My Small Business footer © 2016. DM Hall's email is from Daltons.
+  Aliases confirmed already listed: hiltonsmythe.co.uk, business-partnership.co.uk, acquisitionsintl.com (Benchmark),
+  vexus.org.uk, Sunaxis (= CFA Nottingham), MTBN (= AkenoMTBN).
