@@ -53,6 +53,15 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
 - Demo republished (version 4, 634 firms). **GitHub Pages is live: https://sparkember2026.github.io/cfadvisers/**
   (rebuilds itself on every push that changes data or app; checked in Chromium 10-08, 634 firms, no errors).
 
+### Overnight 2026-10-08 (session 3): list and Routine
+- **Routine `trig_01D4F5WpTKagQ6oX3uEYitEg`** ("cfadvisers overnight revive", hourly at :37, bound to session 3). It
+  disables itself after 08:00 UTC 10-08 or when this list is done. If it is still enabled later, disable it.
+- [ ] Browser re-scoring of the 67 weak-wording lead sites: done (`tools/render_leads.py`, 3 strong). An agent checks
+  6 leads (Digital Edge CF, Nexus Capital Advisory, Edwards Business Sales, Oasis Corporate Advisory, Blackhawk, Astir)
+  -> `data/research/wave6a_ch_leads_3.jsonl`.
+- [ ] Same agent: the review list below -> keep/exclude/fix verdicts; session 3 applies them.
+- [ ] Merge session B's `wave6b_*` files if B was started.
+
 ### Review list from the register (name matches only: check before excluding)
 - In liquidation: Livingstone Partners Limited; Sovereign Business Transfer Limited.
 - Proposal to strike off: CorpFin Limited, IBA Corporate Limited, VEXUS Ltd, Kroll Ltd (probably a namesake shell,
