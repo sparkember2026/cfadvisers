@@ -73,3 +73,22 @@ For session A to review before applying (all overrides validated on a scratch co
   Transworld UK facts via WebFetch (JS site). Sell My Small Business footer © 2016. DM Hall's email is from Daltons.
   Aliases confirmed already listed: hiltonsmythe.co.uk, business-partnership.co.uk, acquisitionsintl.com (Benchmark),
   vexus.org.uk, Sunaxis (= CFA Nottingham), MTBN (= AkenoMTBN).
+
+### wave6b_niche_gaps: done (10 records, 9 new, 45 searches)
+- Valid. Starling Corporate is also in wave6b_directories (same domain: merge dedupes it).
+- New: Funeral Business Central (HQ null; registered office St Asaph, Rockstar Retirement Ltd), The Firebird
+  Partnership (travel, Winchester), IDEX Consulting (insurance brokers/MGAs; recruiter with an M&A arm), Scaled
+  (agencies/SaaS, London), Adam J Walker & Associates (estate agencies; stated £0.5m-£100m), Freight Connect
+  (haulage, Coleford), A4G (Kent accountants), Hyde House Business Brokers (Northampton), TheNonExec (Poole).
+- Starling's London office is a Kemp House registered-office address (said so in its description).
+- Aliases already listed: Business Exits and EXITS.co.uk = VEXUS brands; Digital M&A ~ Advertising M&A;
+  Recruitment Agency Sales = Jonathan Fagan.
+- Niche sectors are saturated: nearly every specialist found was already listed; trade press sites block fetches.
+
+## Session B totals (2026-10-08)
+- **72 new firms** in 4 batch files (niche_brokers 25, sector_deals 5, directories 33, niche_gaps 9 net) and
+  **35 proposals** for existing records. All validated; no overlap with data/advisers.jsonl.
+- ~136 web searches used. The Daltons directory is now fully used; web-search segments are close to exhausted.
+- No Routines created. Autosave stopped at the end.
+- Ideas for later: the ~80 bot-walled / JS-only estimate sites (Playwright) for stated deal sizes; Goadsby by hand;
+  Vertex Corporate, Tide Advisory, BPU need a website.
