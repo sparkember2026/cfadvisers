@@ -56,3 +56,7 @@ For session A to review before applying (all overrides validated on a scratch co
 ### Round 1 lessons (seen 10-08)
 - Press deal sweeps no longer pay (5 firms from ~7,000 articles). Directory APIs do: the Daltons Business agent
   directory (WordPress REST API, ~1,590 agents) gave most of the 25 niche brokers at no search cost.
+
+## Round 2 (2026-10-08): started
+- `wave6b_directories`: broker directories read by code (rest of Daltons agents, other listing-site agent lists).
+- `wave6b_niche_gaps`: the niche sectors round 1 missed (IT/MSP, recruitment, agencies, insurance, opticians, funeral, travel, agri).
