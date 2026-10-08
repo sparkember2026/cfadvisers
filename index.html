@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK CF Advisers</title>
+<meta name="description" content="Directory of UK corporate finance and M&A advisers, filterable by deal size, firm type, region and sector.">
+<meta name="theme-color" content="#1f3a5f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <img src="icon.svg" alt="" width="28" height="28">
+    <div>
+      <h1>UK Corporate Finance Advisers</h1>
+      <div class="sub" id="subtitle">Loading…</div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn ghost" id="toggleFilters" aria-expanded="false">Filters</button>
+    <button class="btn" id="dlCsv" title="Download the advisers that match the filters">Download CSV</button>
+    <button class="btn ghost" id="copyCsv" title="Copy the advisers that match the filters, to paste into Excel or Sheets">Copy CSV</button>
+    <a class="btn ghost" id="apiLink" href="v1/docs" target="_blank" rel="noopener">API</a>
+    <button class="btn ghost" id="installBtn" hidden>Install app</button>
+  </div>
+</header>
+
+<section class="kpis" id="kpis" aria-label="Summary"></section>
+
+<div class="layout">
+  <aside class="filters" id="filters" aria-label="Filters">
+    <div class="fgroup">
+      <label for="q" class="flabel">Search</label>
+      <input id="q" type="search" placeholder="Name, town, sector…" autocomplete="off">
+    </div>
+
+    <div class="fgroup">
+      <div class="flabel">Core deal size <span class="hint">(£m EBITDA)</span></div>
+      <div class="presets" id="sizePresets">
+        <button data-p="any">Any</button>
+        <button data-p="sme">SME £0.5–2m</button>
+        <button data-p="lmm">£2–10m</button>
+        <button data-p="mm">£10m+</button>
+      </div>
+      <div class="range">
+        <input id="emin" type="number" min="0" step="0.1" placeholder="min" aria-label="Minimum EBITDA £m">
+        <span>to</span>
+        <input id="emax" type="number" min="0" step="0.1" placeholder="max" aria-label="Maximum EBITDA £m">
+      </div>
+      <label class="check"><input type="checkbox" id="unknownSize"> include firms of unknown size</label>
+      <p class="hint" id="multipleHint"></p>
+    </div>
+
+    <details class="fgroup" open>
+      <summary class="flabel">Firm type</summary>
+      <div id="fFirmType" class="checks"></div>
+    </details>
+    <details class="fgroup" open>
+      <summary class="flabel">Covers region</summary>
+      <div id="fRegion" class="checks"></div>
+    </details>
+    <details class="fgroup">
+      <summary class="flabel">Head office region</summary>
+      <div id="fHq" class="checks"></div>
+    </details>
+    <details class="fgroup">
+      <summary class="flabel">Sectors</summary>
+      <div id="fSector" class="checks scroll"></div>
+    </details>
+    <details class="fgroup">
+      <summary class="flabel">Services</summary>
+      <div id="fService" class="checks"></div>
+    </details>
+    <div class="fgroup">
+      <div class="flabel">CF professionals</div>
+      <div class="range">
+        <input id="cfmin" type="number" min="0" placeholder="min" aria-label="Minimum CF professionals">
+        <span>to</span>
+        <input id="cfmax" type="number" min="0" placeholder="max" aria-label="Maximum CF professionals">
+      </div>
+    </div>
+    <div class="fgroup">
+      <label class="check"><input type="checkbox" id="hasContact"> has email, team or contact page</label>
+      <label class="check"><input type="checkbox" id="hasEmail"> has an email address</label>
+    </div>
+    <button class="btn ghost wide" id="reset">Reset filters</button>
+  </aside>
+
+  <main class="results">
+    <div class="resbar">
+      <div id="count" class="count" aria-live="polite"></div>
+      <label class="sortl">Sort
+        <select id="sort">
+          <option value="name">Name</option>
+          <option value="cf_professionals:desc">Largest CF team</option>
+          <option value="cf_professionals">Smallest CF team</option>
+          <option value="ebitda_min">Smallest deals first</option>
+          <option value="ebitda_max:desc">Largest deals first</option>
+          <option value="hq">Head office</option>
+          <option value="firm_type">Firm type</option>
+          <option value="completeness:desc">Most complete record</option>
+          <option value="pitchbook_deals:desc">Most PitchBook deals</option>
+        </select>
+      </label>
+    </div>
+    <div class="tablewrap">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th>Adviser</th>
+            <th class="hide-s">Type</th>
+            <th class="hide-s">Head office</th>
+            <th class="num hide-s" title="Corporate finance professionals">CF team</th>
+            <th>Core deal size <span class="hint">£m EBITDA, log scale</span></th>
+            <th class="hide-m">Sectors</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div id="more" class="more"></div>
+    <p class="foot">
+      Researched from firms' own websites and public deal announcements; team sizes and deal sizes marked
+      <em>est.</em> are estimates. Where a firm gives only enterprise values, the EBITDA range is EV ÷ <span id="mult">5</span>.
+      Please check details with the firm before relying on them. Corrections: edit <code>data/overrides.jsonl</code>.
+    </p>
+  </main>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-labelledby="dName">
+  <button class="close" id="dClose" aria-label="Close">×</button>
+  <div id="dBody"></div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
