@@ -33,6 +33,20 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   "Search all firms" (before, searching a non-SME firm showed "No advisers match").
 - No Routines exist (session 2's revive trigger is gone). No web searches used this session.
 
+### Round 6a (session 3): Companies House leads -> 16 new firms (634)
+- `tools/ch_leads.py` (code only, ~15 min): 1,010 likely-adviser leads (strong CF/M&A name terms or advisory SIC;
+  property, construction and trading SICs dropped) -> ~12k guessed domains -> **143 proven sites** in
+  `data/companies_house/lead_sites.jsonl` (28 by company number, 115 by registered name), 76 with strong M&A wording.
+- Two agents checked the 76 (2 web searches in total): **16 added** (`data/research/wave6a_ch_leads_{1,2}.jsonl`),
+  60 rejected: 8+ same-name foreign firms (a name match is weak proof; a company number is strong), lenders and
+  finance brokers, property/investment vehicles, consultancies, listing portals, and 7 already listed.
+- Borderline rejects that could be added on a lower bar: Falcon Corporate Advisory (Leeds), Prime Corporate
+  Advisory, Hanlon CF, Sloane. Weak adds to review: MP Corporate Finance (Vienna HQ, UK company Sept 2026),
+  Plutus CF (close to a loan broker), City & Westminster CF and NJB CF (sites dated 2020).
+- Not yet checked: the 67 proven sites with weak M&A wording (often JS-only sites; check `ma_score` 0-4 by hand
+  or with Playwright), and the ~1,580 lower-likelihood candidates `ch_leads.py` filters out.
+- Demo republished (version 4, 634 firms). GitHub Pages workflow ran green; the owner still has to switch on Pages.
+
 ### Review list from the register (name matches only: check before excluding)
 - In liquidation: Livingstone Partners Limited; Sovereign Business Transfer Limited.
 - Proposal to strike off: CorpFin Limited, IBA Corporate Limited, VEXUS Ltd, Kroll Ltd (probably a namesake shell,
