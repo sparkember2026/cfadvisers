@@ -11,3 +11,4 @@ kjg-co-uk  # Kay Johnson Gee renamed Xeinadin North West Ltd (Companies House 11
 navig8advisory-com  # Navig8 is Langricks' transaction-support arm; the record is langricks-com
 mooresouth-co-uk  # Moore South has joined Moore Kingston Smith (its own site, checked 2026-10-07); the record is mooreks-co-uk
 sw-co-uk  # wrong domain: sw.co.uk is Sanderson Weatherall; S&W re-added as swgroup-com via overrides (2026-10-07)
+corpfin-co-uk  # Founder and sole director Chris Silverwood died suddenly (BusinessCloud, 3 Jul 2026). CORPFIN LIMITED (11110930), the company named on the site, filed dormant accounts for 2024, has overdue filings, and has a compulsory strike-off gazetted Sep 2026. The site has not been updated since 2023 (copyright 2023), and no acquirer or successor was found. (review 2026-10-08)
