@@ -3,6 +3,18 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-12, session 2, wave 5 merged (618 firms)
+- The container restarted on 10-07 at about 16:10 while the `wave5_ch_review` agent was running. Its 9 records
+  had already been autosaved and are now merged: **618 firms** (+9: APMA, Axxeltrova, Bacchus Capital, Carbon CF,
+  Crasner Capital, Cygnum Capital, Exit Strategy Consultants, Qiao, Summit Advisory). The agent probably
+  didn't finish its candidate list.
+- The merge also brought in the site-check fills and enrichment: +66 LinkedIn URLs, +43 team sizes, +19 emails.
+  No field lost a value.
+- The scratchpad files from the Companies House passes (`w4_ch2/`) are gone with the old container. The next
+  CH pass starts from scratch.
+- The hourly revive Routine fired into an idle session for 5 days because no agents were running. If no new
+  round is started, disable it (`trig_01BB4YX9pQ8CffPf3cL66tu2`).
+
 ## 2026-10-07, session 2, round 4 done (609 firms)
 - **609 firms** (539 after round 3). Round 4, `data/research/wave4_*.jsonl`, about 70 net new:
   Companies House pass 2: 32; sector brokers: 18; regional deals: 14; London/SE: 8.
