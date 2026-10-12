@@ -3,6 +3,14 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-12 21:05 UTC, note from session 1 (vibrant-gauss)
+- **Revive Routine `trig_01BB4YX9pQ8CffPf3cL66tu2` ("cfadvisers hourly revive") is now DISABLED,** at the
+  owner's request. It had fired hourly into an idle session for 5 days, using up account allowance.
+  Re-enable it (`update_trigger enabled=true`) only while a research round is actually running.
+- **The repo is PUBLIC** (the GitHub API serves it without auth). Owner informed; their decision.
+  Until it is private, do not commit PitchBook-derived data: `data/pitchbook_stats.json` and
+  `data/pitchbook_unmatched.csv` would publish licensed data.
+
 ## 2026-10-12, session 2, wave 5 merged (618 firms)
 - The container restarted on 10-07 at about 16:10 while the `wave5_ch_review` agent was running. Its 9 records
   had already been autosaved and are now merged: **618 firms** (+9: APMA, Axxeltrova, Bacchus Capital, Carbon CF,
