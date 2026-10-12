@@ -20,7 +20,7 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   No field lost a value.
 - **Working files saved** to the private repo `sparkember2026/private-data`, folder
   `cfadvisers-session2-stoic-edison-2026-10-12/working/`: CH candidate lists, M&A-wording scores for ~50k guessed
-  domains (`w4_ch2/fetched*.tsv`), `reviewed.txt`, scripts and review notes. Page caches and PDFs were left out.
+  domains (`w4_ch2/fetched*.tsv`), `reviewed.txt`, scripts and review notes; also the full scratchpad (page caches, PDFs) as a 663 MB split archive in `parts/`.
   The best place to resume is `w5_scrape/` (round 5 re-scrape including no-SIC companies; not reviewed yet).
 - The hourly revive Routine is disabled (see the note above).
 
