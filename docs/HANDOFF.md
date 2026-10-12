@@ -10,8 +10,10 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   didn't finish its candidate list.
 - The merge also brought in the site-check fills and enrichment: +66 LinkedIn URLs, +43 team sizes, +19 emails.
   No field lost a value.
-- The scratchpad files from the Companies House passes (`w4_ch2/`) are gone with the old container. The next
-  CH pass starts from scratch.
+- **Working files saved** to the private repo `sparkember2026/private-data`, folder
+  `cfadvisers-session2-stoic-edison-2026-10-12/working/`: CH candidate lists, M&A-wording scores for ~50k guessed
+  domains (`w4_ch2/fetched*.tsv`), `reviewed.txt`, scripts and review notes. Page caches and PDFs were left out.
+  The best place to resume is `w5_scrape/` (round 5 re-scrape including no-SIC companies; not reviewed yet).
 - The hourly revive Routine fired into an idle session for 5 days because no agents were running. If no new
   round is started, disable it (`trig_01BB4YX9pQ8CffPf3cL66tu2`).
 
