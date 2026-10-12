@@ -22,8 +22,7 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
   `cfadvisers-session2-stoic-edison-2026-10-12/working/`: CH candidate lists, M&A-wording scores for ~50k guessed
   domains (`w4_ch2/fetched*.tsv`), `reviewed.txt`, scripts and review notes. Page caches and PDFs were left out.
   The best place to resume is `w5_scrape/` (round 5 re-scrape including no-SIC companies; not reviewed yet).
-- The hourly revive Routine fired into an idle session for 5 days because no agents were running. If no new
-  round is started, disable it (`trig_01BB4YX9pQ8CffPf3cL66tu2`).
+- The hourly revive Routine is disabled (see the note above).
 
 ## 2026-10-07, session 2, round 4 done (609 firms)
 - **609 firms** (539 after round 3). Round 4, `data/research/wave4_*.jsonl`, about 70 net new:
