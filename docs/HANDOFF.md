@@ -14,8 +14,9 @@ Newest entry on top. Each entry gives the state, what is unfinished, and the nex
     firms, not growing the list.
   - The importer reads Joel's format. Run it in a scratch copy, or keep its outputs out of git while this repo
     is public.
-- **Open:** the two sample .xlsx files were uploaded to the root of `main` here (public). Owner to decide: make
-  the repo private, and/or delete them from `main`.
+- **Fixed (2026-10-14):** the two sample .xlsx files that had been uploaded to `main` (public) were removed from
+  its history: `main` was moved back past the upload commit `d248795` with a guarded force-push. No branch has any
+  PitchBook data file in its history. Copies are in `private-data/pitchbook/samples-2026-10-13/` (checksums match).
 - **Saved:** this session's whole scratchpad (6 GB, split xz archive) and the compact working set are in
   `private-data/cfadvisers-session2-stoic-edison-2026-10-12/`. No Routines are enabled.
 - **Next:** the full PitchBook import when Joel's download arrives, or the review of `w5_scrape/` Companies House
