@@ -3,6 +3,24 @@
 Newest entry on top. Each entry gives the state, what is unfinished, and the next steps. How to run sessions:
 `docs/SESSION-PLAYBOOK.md`.
 
+## 2026-10-13, session 2: PitchBook samples reviewed, everything saved
+- **PitchBook:** Joel (Steyn Group) offered two searches (UK deals from 2021): option 1, ~31k deals unfiltered;
+  option 2, ~11k deals filtered to the ~550 of our firms PitchBook recognises. His 20-row samples, the notes and our
+  advice are in the private repo, `sparkember2026/private-data`, under `pitchbook/` (see `NOTES-2026-10-13.md`).
+  - The advice: ask for option 1 **filtered to deals with at least one service provider**. If that isn't
+    possible, take option 2, not a split of option 1, since most option-1 rows have no advisers.
+  - Option 2 still shows co-advisers who aren't in our list, so it does find new firms.
+  - EBITDA and deal size are rarely filled, so the value is deal counts, recency and named dealmakers: ranking
+    firms, not growing the list.
+  - The importer reads Joel's format. Run it in a scratch copy, or keep its outputs out of git while this repo
+    is public.
+- **Open:** the two sample .xlsx files were uploaded to the root of `main` here (public). Owner to decide: make
+  the repo private, and/or delete them from `main`.
+- **Saved:** this session's whole scratchpad (6 GB, split xz archive) and the compact working set are in
+  `private-data/cfadvisers-session2-stoic-edison-2026-10-12/`. No Routines are enabled.
+- **Next:** the full PitchBook import when Joel's download arrives, or the review of `w5_scrape/` Companies House
+  candidates. Start a fresh session (`docs/CONTINUATION-PROMPT.md`).
+
 ## 2026-10-12 21:05 UTC, note from session 1 (vibrant-gauss)
 - **Revive Routine `trig_01BB4YX9pQ8CffPf3cL66tu2` ("cfadvisers hourly revive") is now DISABLED,** at the
   owner's request. It had fired hourly into an idle session for 5 days, using up account allowance.
