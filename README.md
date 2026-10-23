@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **This public repository is a staging shell and has been superseded by a private repository.**
+> It's kept only to receive one-shot contributions. The maintained version is built and kept in private version control.
+> Please don't build on this copy.
+
 # cfadvisers — moved
 
 This repository has been retired. Development continues in a **private** repository.
